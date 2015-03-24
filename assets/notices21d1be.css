@@ -1,0 +1,109 @@
+/*reset*/
+html{
+    font-size: 125%;/*20px*/
+}
+body{
+	font: 0.7rem/1.3em "Helvetica Neue",Helvetica,Arial,Tahoma,sans-serif;
+	background: #fff;
+}
+body,dl,dt,dd,p,ol,li{
+	margin:0; padding:0;
+}
+ul,li,ol{
+    list-style: none;
+}
+.group:after{
+    content: ".";display: block;height: 0;font-size: 0;clear: both;visibility: hidden;
+}
+.svg{
+    display: none;
+}
+/*icon*/
+.menu_panel{
+    padding-left: 0.75rem;
+}
+.arrow{
+    position: absolute;
+    top:50%;
+    margin-top:-10px;
+    right: 8px;
+    height:14px;
+    width:10px;
+    fill: #000;
+}
+.new_icon{
+    position: absolute;
+    display: none;
+    width: 36px;
+    height: 20px;
+    margin-left: 4px;
+    vertical-align: top;
+    margin-top: -2.5px;
+}
+.new .new_icon{
+    display: inline-block;
+}
+@media only screen and (-webkit-min-device-pixel-ratio:2) {
+    .new_icon{
+        background-image: url(/zh_CN/htmledition/images/weixin/notices_new_2x0ec594.png);
+        background-size: 36px 20px;
+        -webkit-background-size: 36px 20px;
+    }
+    .arrow{
+    }
+}
+
+.loading{
+    background: url(/zh_CN/htmledition/images/ico_loading20ca6c3.gif) no-repeat center center;
+    -webkit-background-size: 16px 16px;
+    background-size: 16px 16px;
+    height: 16px;
+}
+
+/*content*/
+body dl{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+	border-bottom:1px solid #DFDFDD;
+}
+body dl dt{
+	position: relative;
+	border-top:1px solid #fff;
+	padding:0.5rem 1.5rem 0.6rem 0px;
+}
+body dl.down dt{
+    border-bottom:1px solid #DFDFDD;
+}
+body dl.down dd{
+    display: block;
+}
+body dl dt .dt_content .title{
+    font-size: 0.7rem;
+	font-weight: normal;
+	text-shadow: #fff 0 1px 0;
+    margin-bottom: 0.2rem;
+}
+body dl dt .dt_content .date{
+	font-size: 0.65rem;
+	color: #888;
+	text-shadow: #fff 0 1px 0;
+}
+
+.content{
+    padding: 1.3rem 0.5rem;
+}
+.content li.section{
+    margin-bottom: 1.4rem;
+}
+.content li.section p{
+    margin-bottom: 0.65rem;
+}
+.content li.section .img_group{
+    padding:0px; min-width: 297px;
+}
+.content li.section img{
+	float:left;
+	width: 145px;
+}
+.content li.section .img2{
+    float: right;
+}

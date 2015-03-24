@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main_list_menu_title">菜单</string>
+    <string name="main_list_menu_open">打开</string>
+    <string name="main_list_menu_view">查看</string>
+    <string name="main_list_menu_edit">编辑</string>
+    <string name="main_list_menu_dele">删除</string>
+     
+     <string name="main_menu_onekey">一键清除</string>
+     <string name="main_menu_refresh">刷新</string>
+     <string name="main_menu_share">共享</string>
+     <string name="main_menu_setting">设置</string>
+     <string name="main_menu_about">关于</string>
+     <string name="main_menu_exit">退出</string>
+     
+     <string name="main_alert_title">提示</string>
+     <string name="main_alert_message_left">数据库为：</string>
+     <string name="main_alert_message_right">\n\n确定上传吗？</string>
+     <string name="main_alert_ok">确定</string>
+     <string name="main_alert_cancel">取消</string>
+     <string name="main_alert_exception">共享时出现错误：</string>
+     
+     
+     <string name="string_null">　</string>
+</resources>
+  

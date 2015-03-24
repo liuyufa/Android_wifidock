@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootContainer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:focusable="true" 
+  	android:focusableInTouchMode="true">
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/tittle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/title1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/btnHome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/home2"
+                        android:scaleType="center" />
+
+                    <ImageView
+                        android:id="@+id/homebg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/home_title_bar"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/menuTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/settingsTittle"
+                    android:textColor="@color/white"
+                    android:textSize="20.0dip" />
+                <!-- 返回到主菜单的按钮 -->
+
+                <FrameLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/btnBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/back2"
+                        android:scaleType="center" />
+
+                    <ImageView
+                        android:id="@+id/backbg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/back_title_bar"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </FrameLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/hotBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_refresh" 
+        android:textSize="20sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="6"
+        android:orientation="horizontal"
+        android:background="@drawable/whitebg" 
+        >
+	<ListView android:id="@+id/hotListView"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:cacheColorHint="#00000000"
+	android:divider="@drawable/filesplitter"
+	android:listSelector="@drawable/list_selector" 
+	android:layout_margin="0dip"
+	/>
+	</LinearLayout>
+</LinearLayout>

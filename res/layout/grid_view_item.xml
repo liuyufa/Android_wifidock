@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:padding="5dip">
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="0dip"
+      android:layout_weight="2"
+      android:layout_height="wrap_content"
+      >
+  <ImageView android:id="@+id/ivOfGVItem"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:scaleType="centerInside"
+  android:src="@drawable/musicicon"
+  /> 
+  <TextView
+  android:id="@+id/tvOfGVItem"
+  style="@style/tvInGridView"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:background="#00000000"
+  android:text="tttt"
+  android:singleLine="true"
+  android:gravity="center"/>
+  </LinearLayout>
+   <CheckBox 
+	android:id="@+id/checkstatus" 	
+	android:layout_width="0dip"
+	android:layout_weight="2"
+	android:layout_height="wrap_content" 
+	android:layout_marginTop="25dip"
+	android:layout_marginRight="5dip"
+	android:checked="false"
+	android:focusable="false"
+	style="@style/checkbox_style"
+	/>
+</LinearLayout>

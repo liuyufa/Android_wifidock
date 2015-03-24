@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mybackgroundcolor2">#c0000000</color>
+    <color name="mybackgroundcolor">#00000000</color>
+    <color name="color_riseyellow">#FFFFFFCC</color>
+    <color name="color_seasonblue">#FF00FFCC</color>
+	<color name="color_blue">#ff38bbff</color>
+    <color name="color_mag">#ff7d97ea</color>
+    <color name="color_menu_back">#ff28353d</color>
+    <color name="color_blue_facebook">#ff506098</color>
+    <color name="color_white">#ffffffff</color>
+  	<color name="color_link">#5a5dff</color> 
+  	<color name="color_transparent">#00000000</color>  	   
+    <color name="fb_icon_color">#ffffffff</color>
+    <color name="fb_bkground_color">#fff0f8f8</color>
+    <color name="white">#ffffffff</color>
+    <color name="gray">#ff9f9f9f</color>
+    <color name="green">#ff669900</color>
+    
+	<drawable name="tv_normal">#FFFFFF</drawable>
+	<drawable name="tv_attribute_name">#000000</drawable>
+	<drawable name="tv_focused">#1F2FAB</drawable>
+	<drawable name="tv_pressed">#00cccc</drawable>
+	<drawable name="tv_selected">#0014AB</drawable>
+	<drawable name="tv_cut">#888888</drawable>
+	<drawable name="tv_in">#ffff00</drawable>
+	<drawable name="tab_bg">#20000000</drawable>
+	
+	<drawable name="iv_placeholder">#5C5A5A</drawable>
+	
+	<drawable name="btn_focus">#FFFFFF</drawable>
+	<drawable name="btn_normal">#000000</drawable>
+	
+	<drawable name="listview_item1">#1FE1E1E1</drawable>
+	<drawable name="listview_item2">#1FEBEBEB</drawable>
+	<drawable name="listview_item3">#1FB4B4B4</drawable>
+	
+	<drawable name="divide">#555555</drawable>        
+</resources>

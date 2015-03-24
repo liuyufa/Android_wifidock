@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="config_allAppsFadeInTime">700</integer>
+    <integer name="config_allAppsFadeOutTime">700</integer>
+    <integer name="config_allAppsBatchLoadDelay">0</integer>
+    <integer name="config_allAppsBatchSize">0</integer>
+    <integer name="COLOR_BLACK">-16777216</integer>
+    <integer name="COLOR_GREEN">-16711936</integer>
+</resources>

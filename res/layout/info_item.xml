@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	<TextView
+            android:id="@+id/storage"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_height="40dip"  
+            android:textColor="#99ffffff"
+            android:text="关于"
+            android:layout_gravity="center"
+            android:textSize="24sp" />  
+     <LinearLayout
+          android:layout_width="match_parent"  
+          android:layout_marginLeft="10dip"
+          android:layout_marginRight="10dip"       
+          android:layout_height="1dip"  
+          android:background="#99ffffff"
+         />
+     <LinearLayout 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:layout_marginLeft="10dip"
+         android:layout_marginRight="10dip"  
+         android:layout_marginTop="10dip" 
+         android:id="@+id/totalSpace"
+         >
+         <LinearLayout 
+             android:layout_width="0dip"
+         	 android:layout_height="wrap_content"
+         	 android:orientation="vertical"
+         	 android:layout_weight="2"
+             >
+             <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="#99ffffff"
+            android:textSize="18dp"
+            android:text="总容量"
+            android:textStyle="bold" />
+
+        	<TextView
+            android:id="@+id/numTotal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="5dip"
+            android:textColor="#99ffffff"
+            android:text="16G"
+            android:textSize="18dp" />
+         </LinearLayout>
+         	<ProgressBar 
+			android:id="@+id/barToatal" 
+			android:layout_width="0.0dip" 
+			android:layout_height="30.0dip" 
+			android:layout_marginLeft="10dip"
+			android:max="100" 
+			android:progress="0"
+			android:layout_weight="5.0" 
+			style="@style/download_progressBarStyleHorizontal" />         	
+     </LinearLayout>
+	 <LinearLayout
+          android:layout_width="match_parent"  
+          android:layout_marginLeft="10dip"
+          android:layout_marginRight="10dip"       
+          android:layout_height="1dip"  
+          android:background="#99ffffff"
+         />
+     <LinearLayout 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:layout_marginLeft="10dip"
+         android:layout_marginRight="10dip"  
+         android:layout_marginTop="10dip" 
+         >
+         <LinearLayout 
+             android:layout_width="0.0dip"
+             android:layout_weight="2"
+         	 android:layout_height="wrap_content"
+         	 android:orientation="vertical"
+             >
+             <TextView
+            android:id="@+id/txtFree"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="#99ffffff"
+            android:textSize="18dp"
+            android:text="可用空间"
+            android:textStyle="bold" />
+
+        	<TextView
+            android:id="@+id/numFree"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="5dip"
+            android:textColor="#99ffffff"
+            android:text="10G"
+            android:textSize="18dp" />
+         </LinearLayout>
+         	<ProgressBar 
+			android:id="@+id/barFree" 
+			android:layout_width="0.0dip" 
+			android:layout_height="30.0dip" 
+			android:layout_marginLeft="10dip"
+			android:max="100" 
+			android:progress="50"
+			android:layout_weight="5.0" 
+			style="@style/download_progressBarStyleHorizontal" />
+     </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/delete" android:title="@string/delete" />
+    <item android:id="@+id/copyToLocal" android:title="@string/copyToLocal" /> 
+    <item android:id="@+id/copyToWifiShare" android:title="@string/copyToWifiShare" /> 
+    <item android:id="@+id/copyToSd" android:title="@string/copyToSd" /> 
+    <item android:id="@+id/copyToMicroSd" android:title="@string/copyToMicroSd" /> 
+</menu>

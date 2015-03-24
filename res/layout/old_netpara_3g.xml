@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 11月30日删除设置图片及文字 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootContainer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/mainbg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/tittle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/title1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/btnHome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/home2"
+                        android:scaleType="center" />
+
+                    <ImageView
+                        android:id="@+id/homebg_3g"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/home_title_bar"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/menuTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/settingsTittle"
+                    android:textColor="@color/white"
+                    android:textSize="20.0dip" />
+                <!-- 返回到主菜单的按钮 -->
+
+                <FrameLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/btnBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/back2"
+                        android:scaleType="center" />
+
+                    <ImageView
+                        android:id="@+id/backbg_3g"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/back_title_bar"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </FrameLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="6"
+        android:orientation="vertical"
+        android:background="@drawable/whitebg" 
+        >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:text="@string/set_wan_tip"
+            android:textColor="#FFFFFF" />
+        <RelativeLayout
+       		android:layout_width="match_parent"
+       	 	android:layout_height="match_parent"
+			>
+        <TextView
+            android:id="@+id/textView_adr_type"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:layout_alignLeft="@+id/textView_adr_type"
+            android:layout_alignRight="@+id/textView_adr_type"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/set_adr_type"
+            android:textColor="#000000" />
+
+        <Spinner
+            android:id="@+id/spinner_adr_type_3g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView_adr_type"
+            android:layout_toRightOf="@+id/textView_adr_type"
+            android:textColor="#000000" />
+        
+        <TextView
+            android:id="@+id/textView_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:layout_below="@+id/textView_adr_type"
+            android:layout_alignLeft="@+id/textView_adr_type"
+            android:layout_alignRight="@+id/textView_adr_type"
+            android:text="@string/set_area"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="#000000" />
+
+        <Spinner
+            android:id="@+id/spinner_area_3g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView_area"
+            android:layout_toRightOf="@+id/textView_area"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView_isp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/textView_area"
+            android:layout_alignLeft="@+id/textView_area"
+            android:layout_below="@+id/textView_area"
+            android:layout_marginTop="29dp"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/set_isp"
+            android:textColor="#000000" />
+
+        <Spinner
+            android:id="@+id/spinner_isp_3g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView_isp"
+            android:layout_toRightOf="@+id/textView_isp"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/save_button_3g"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_isp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="69dp"
+            android:text="@string/set_save"
+            android:onClick="doClick"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/re_button_3g"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/save_button_3g"
+            android:layout_alignRight="@+id/spinner_isp_3g"
+            android:layout_marginRight="20dp"
+            android:text="@string/set_restore"
+            android:onClick="doClick"
+            android:textColor="#000000" />
+        </RelativeLayout>
+	</LinearLayout>
+</LinearLayout>

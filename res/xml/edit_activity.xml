@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/edit_activity_tag_name">
+        <Preference android:key="@string/edit_activity_key_name"></Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/edit_activity_tag_edit">
+        <!--提示信息 -->
+        <EditTextPreference android:key="@string/edit_activity_key_info" android:title="@string/edit_activity_title_info" android:summary="@string/edit_activity_summary_nothing"></EditTextPreference>
+        <!-- 生成软件 -->
+        <EditTextPreference android:key="@string/edit_activity_key_soft" android:title="@string/edit_activity_title_soft" android:summary="@string/edit_activity_summary_nothing"></EditTextPreference>
+        <!-- 删除后果 -->
+        <EditTextPreference android:key="@string/edit_activity_key_dele" android:title="@string/edit_activity_title_dele" android:summary="@string/edit_activity_summary_nothing"></EditTextPreference><ListPreference android:key="@string/edit_activity_key_index" android:entryValues="@array/edit_activity_spinner_index_key" android:entries="@array/edit_activity_spinner_index" android:title="@string/edit_activity_title_index" android:summary="@string/edit_activity_summary_nothing"></ListPreference>
+        
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/edit_activity_tag_onekey">
+        <!-- 可否清楚 -->
+        <CheckBoxPreference android:key="@string/edit_activity_key_oneKey_isDele" android:title="@string/edit_activity_title_oneKey_isDele" android:summaryOn="@string/edit_activity_title_oneKey_isDele_on" android:summaryOff="@string/edit_activity_title_oneKey_isDele_off"></CheckBoxPreference>
+        <!-- 删除时警告 -->
+        <CheckBoxPreference android:key="@string/edit_activity_key_oneKey_isAlert" android:title="@string/edit_activity_title_oneKey_isAlert"></CheckBoxPreference>
+        <!-- 警告内容 -->
+        <EditTextPreference android:key="@string/edit_activity_key_oneKey_alertInfo" android:title="@string/edit_activity_title_oneKey_alertInfo" android:summary="@string/edit_activity_summary_nothing"></EditTextPreference>
+    </PreferenceCategory>
+    
+</PreferenceScreen>

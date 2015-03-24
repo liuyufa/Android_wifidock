@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="oneKey_progressDialog_title">正在加载，请稍等</string>
+	<string name="oneKey_progressDialog_tip_load_app">正在加载已安装的软件</string>
+	<string name="oneKey_progressDialog_tip_load_app_final">获取已安装程序列表完成</string>
+	<string name="oneKey_progressDialog_tip_load_dele_list">正在计算可删除列表</string>
+	<string name="oneKey_progressDialog_tip_load_show_dele_list">真正准备显示可删除列表</string>
+	
+	<string name="oneKey_menu_delete">删除</string>
+	<string name="oneKey_menu_cancel">取消</string>
+     
+     <string name="oneKey_alertDialog_titile">提示</string>
+     <string name="oneKey_alertDialog_button_ok">确定</string>
+     <string name="oneKey_alertDialog_button_cancel">取消</string> 
+     
+</resources> 

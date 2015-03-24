@@ -1,0 +1,43 @@
+package com.leoman.wifidisk.src.Helper;
+
+public class FileHelper {
+	static public String getSuffix(String filePath) {
+		int index = filePath.lastIndexOf(".");
+		if (index >= 0)
+			return filePath.substring(index + 1);
+		return "";
+	}
+
+	static public String getFileName(String filePath) {
+		int index1 = filePath.lastIndexOf("/");
+		int index2 = filePath.lastIndexOf("\\");
+		if (index1 >= 0 && index2 >= 0)
+			return filePath.substring((index1 > index2 ? index1 : index2) + 1);
+		else if (index1 >= 0)
+			return filePath.substring(index1 + 1);
+		else if (index2 >= 0)
+			return filePath.substring(index2 + 1);
+		return "";
+	}
+
+	static public String getFileNameWithoutSuffix(String filePath) {
+		String fileName = getFileName(filePath);
+		int index = fileName.lastIndexOf(".");
+		if (index >= 0) {
+			fileName = fileName.substring(0, index);
+		}
+		return fileName;
+	}
+
+	static public String getPath(String filePath) {
+		int index1 = filePath.lastIndexOf("/");
+		int index2 = filePath.lastIndexOf("\\");
+		if (index1 >= 0 && index2 >= 0)
+			return filePath.substring(0, (index1 > index2 ? index1 : index2));
+		else if (index1 >= 0)
+			return filePath.substring(0, index1);
+		else if (index2 >= 0)
+			return filePath.substring(0, index2);
+		return "";
+	}
+}

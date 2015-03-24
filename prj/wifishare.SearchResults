@@ -1,0 +1,16 @@
+---- ScrollView Matches (15 in 2 files) ----
+HorizontalLayout.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\filecenter\filebrowser):import android.widget.HorizontalScrollView;
+HorizontalLayout.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\filecenter\filebrowser):public class HorizontalLayout extends HorizontalScrollView {
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):import android.widget.ScrollView;
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		ScrollView localScrollView;
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		localScrollView = new ScrollView(getContext());
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		localScrollView.setBackgroundColor(0);
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		localScrollView.setDrawingCacheBackgroundColor(0);
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		localScrollView.setDrawingCacheEnabled(false);
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		localScrollView.setFadingEdgeLength(0);
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		localScrollView.setLayoutParams(innersParams);
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		localScrollView.setVerticalScrollBarEnabled(false);
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		localScrollView.setHorizontalScrollBarEnabled(false);
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		setOverScrollMode(localScrollView, 2);
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		localScrollView.addView(this.innerLayout);
+WPThemeView.java (d:\work\lenovo\wifishare\src\com\hualu\wifishare\views):		addView(localScrollView);

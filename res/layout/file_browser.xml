@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+   <com.hualu.wifistart.filecenter.filebrowser.HorizontalLayout
+    android:id="@+id/filePathLayout"
+    android:layout_width="match_parent"
+	android:layout_height="23dip"
+	android:background="@color/color_white"
+	android:gravity="center_vertical"
+	>
+	</com.hualu.wifistart.filecenter.filebrowser.HorizontalLayout>	
+<LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/search"
+        android:layout_width="fill_parent" 
+		android:layout_height="45dip" 
+		android:paddingTop="2dip"	
+        >
+                 <!-- 
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/searchup"
+            android:scaleType="fitXY"
+            />
+             -->
+         <com.hualu.wifistart.views.WPTextBox
+		android:id="@+id/searchbox" 
+		android:layout_width="0.0dip" 
+		android:layout_height="match_parent" 
+		android:layout_weight="1"
+		android:layout_gravity="center_vertical"
+		android:background="@drawable/searchbg"		
+		/>
+         
+        <Button
+        android:id="@+id/btnSearch2" 
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/searchup"
+        android:scaleType="fitXY"
+            />
+         <!-- 
+       <EditText
+		android:id="@+id/searchbox" 
+		android:layout_width="0.0dip" 
+		android:layout_height="match_parent" 
+		android:layout_weight="1"		
+		android:background="@drawable/searchbg"	
+		/>   -->      
+    </LinearLayout>
+	<RelativeLayout 
+    	    android:layout_width="fill_parent"
+    		android:layout_height="0dip"
+    		android:layout_weight="7"	
+    	    > 
+    	    <LinearLayout android:id="@+id/empty_folder"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"    	
+		android:orientation="vertical"
+		android:visibility="invisible"
+		android:gravity="center">
+		
+		<TextView style="@style/tvNormal"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:visibility="gone"
+		android:text="@string/tip_empty_folder"/>
+		<ImageView 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:scaleType="center"
+		android:src="@drawable/empty_folder"/>		
+	</LinearLayout>
+	
+	<ListView android:id="@+id/filesListView"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:cacheColorHint="#00000000"
+	android:divider="@drawable/filesplitter"
+	android:listSelector="@drawable/list_selector" 
+	android:layout_margin="0dip"
+	android:background="@drawable/whitebg"
+	/>
+	<ListView 
+    android:id="@+id/lvSearchList"    
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:cacheColorHint="#00000000"
+	android:drawSelectorOnTop="false"
+	android:divider="@drawable/filesplitter"
+	android:listSelector="@drawable/list_selector"
+	android:layout_margin="0dip"
+	android:background="@drawable/whitebg"
+	>        
+    </ListView>
+	<GridView
+    android:id="@+id/filesGridView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dip"
+    android:verticalSpacing="10dip"
+    android:horizontalSpacing="5dip"
+    android:numColumns="5"  
+    android:stretchMode="columnWidth"
+    android:gravity="top"
+    android:listSelector="@drawable/grid_selector"
+    android:background="@drawable/whitebg"
+    />
+	<!-- liuyufa 20131220 delete for search start 
+	<ProgressBar  
+      android:id="@+id/pbar"  
+      android:layout_width="wrap_content"  
+      android:layout_height="wrap_content"
+      android:indeterminate="false"
+  	   android:layout_centerInParent="true"
+      /> 
+      liuyufa 20131220 delete for search end -->
+    </RelativeLayout>
+</LinearLayout>

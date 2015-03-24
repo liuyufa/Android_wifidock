@@ -1,0 +1,119 @@
+package com.leoman.wifidisk.src.widgets;
+
+import android.graphics.Bitmap;
+import android.graphics.PointF;
+import android.graphics.RectF;
+
+public class ImageButton {
+	static ScaleSizeF defualtSize = new ScaleSizeF(0.095307918f,0.160098522f);;//Ĭ�ϰ�ť��С
+	public int downBmpId,upBmpId;
+	public String cmd;//��һ����;��������
+	public String cancelCmd;
+	public ScaleSizeF size = null;//���ű���;//���ű���
+	public PointF leftTopPos;//���ű���
+	public boolean isNotNeedSend = false;
+	public boolean isOnlyShow = false;
+	public boolean isSlide = false;
+	
+	public boolean isShow = false;
+	public Bitmap 	downBmp,upBmp;
+	public RectF 	rect;
+	public RectF 	orgRect;//ԭʼλ��
+	public boolean isLock = false;
+	public boolean isVisible = true;
+	
+	public int  style = 0;//ֻ�а���ʱ��Ч���º�̸��û����ͼƬ����
+	
+	public ImageButton(int downBmpId, int upBmpId, String cmd,
+			String cancelCmd, PointF leftTopPos, ScaleSizeF size,
+			boolean isNotNeedSend, boolean isShow, int style) {
+		super();
+		this.downBmpId = downBmpId;
+		this.upBmpId = upBmpId;
+		this.cmd = cmd;
+		this.cancelCmd = cancelCmd;
+		this.leftTopPos = leftTopPos;
+		this.size = size;
+		this.isNotNeedSend = isNotNeedSend;
+		this.isShow = isShow;
+		this.style = style;
+	}
+
+	public ImageButton(int downBmpId,int upBmpId, String cmd,String cancelCmd, PointF leftTopPos,boolean isNotNeedSend) {
+		this(downBmpId,upBmpId,cmd,cancelCmd,leftTopPos,null,isNotNeedSend,false,0);
+	}
+	
+	public ImageButton(int downBmpId, String cmd,String cancelCmd, PointF leftTopPos) {
+		this(downBmpId,-1,cmd,cancelCmd,leftTopPos,false);
+	}
+	
+	public ImageButton(int downBmpId, String cmd, PointF leftTopPos,boolean isNotNeedSend) {
+		this(downBmpId,-1,cmd,null,leftTopPos,isNotNeedSend);
+	}
+	
+	public ImageButton(int downBmpId, String cmd, PointF leftTopPos,boolean isNotNeedSend,boolean isShow) {
+		this(downBmpId,-1,cmd,null,leftTopPos,isNotNeedSend);
+		this.isShow = isShow;
+	}
+	public ImageButton(int downBmpId, String cmd, PointF leftTopPos,boolean isNotNeedSend,boolean isShow,boolean isOnlyShow) {
+		this(downBmpId,-1,cmd,null,leftTopPos,isNotNeedSend);
+		this.isShow = isShow;
+		this.isOnlyShow = isOnlyShow;
+	}
+	public ImageButton(int downBmpId,int upBmpId, String cmd,String cancelCmd, 
+			PointF leftTopPos,ScaleSizeF size,
+			boolean isNotNeedSend,boolean isShow,boolean isOnlyShow) {
+		this(downBmpId,upBmpId,cmd,cancelCmd,leftTopPos,size,isNotNeedSend,isShow,0);
+		this.isOnlyShow = isOnlyShow;
+	}
+
+	public ImageButton(int downBmpId, String cmd,String cancelCmd, PointF leftTopPos,boolean isShow) {
+		this(downBmpId,  cmd, cancelCmd,  leftTopPos);
+		this.isShow = isShow;
+	}
+
+	public RectF getRect() {
+		return rect;
+	}
+
+	public RectF setRect(int w, int h,ScaleSizeF size) { 
+		if(this.size==null ){
+			if(downBmp!=null)
+				this.size =  new ScaleSizeF(((float)downBmp.getWidth())/(float)w, ((float)downBmp.getHeight())/(float)h);
+			else
+				return null;
+		}
+		rect = new RectF(
+				w*leftTopPos.x,
+				h*leftTopPos.y,
+				w*leftTopPos.x+w*this.size.sx,
+				h*leftTopPos.y+h*this.size.sy);
+		return rect;
+	}
+	
+	public void resetRect(){
+		rect = new RectF(orgRect); 
+	}
+	
+	public void setOrgRect(RectF rect){
+		orgRect =  new RectF(rect);
+	}
+
+	static public boolean floatEqual(float a ,float b){
+		return Math.abs(a-b)<=0.005;
+	}
+	public boolean isNotMotion() {
+		return floatEqual(rect.left , orgRect.left)
+				&& floatEqual(rect.top , orgRect.top)
+				&& floatEqual(rect.right , orgRect.right)
+				&& floatEqual(rect.bottom , orgRect.bottom);
+	}
+
+	public void hide() {
+		this.isVisible = false;
+	}
+	
+	public void show() {
+		this.isVisible = true;
+	}
+}

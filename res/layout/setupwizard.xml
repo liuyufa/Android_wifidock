@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootContainer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/tittle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/title1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/btnHome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/home2"
+                        android:scaleType="center" />
+
+                    <ImageView
+                        android:id="@+id/homebg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/home_title_bar"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/menuTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/settingsTittle"
+                    android:textColor="@color/white"
+                    android:textSize="20.0dip" />
+                <!-- 返回到主菜单的按钮 -->
+
+                <FrameLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/btnBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/back2"
+                        android:scaleType="center" />
+                    <ImageView
+                        android:id="@+id/backbg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/back_title_bar"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </FrameLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent" 
+		android:layout_height="0dip" 
+		android:layout_weight="6" 
+		android:orientation="vertical" 
+		android:background="@drawable/whitebg" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:text="@string/set_guide"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:textColor="#000000"
+            android:text="@string/set_thank"
+         />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp" >
+
+                <RadioButton
+                    android:id="@+id/radio_pppoe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/radio_dhcp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RadioButton
+                    android:id="@+id/radio_static"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RadioButton
+                    android:id="@+id/radio_3g"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    android:layout_width="242dp"
+                    android:layout_height="48dp"
+                    android:paddingTop="15dp"
+                    android:textColor="#000000"
+                    android:text="@string/set_pppoe" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#000000"
+                    android:text="@string/set_dhcp" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#000000"
+                    android:text="@string/set_static"  />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingTop="15dp"
+                    android:textColor="#000000"
+                    android:text="@string/set_3gnet" />
+            </LinearLayout>
+        </LinearLayout>
+        <Button 
+            android:id="@+id/next_button"
+            android:layout_marginTop="20dp"
+            android:layout_width="100dp"
+            android:text="@string/set_next"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"/>
+    </LinearLayout>
+
+</LinearLayout>

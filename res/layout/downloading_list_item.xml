@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+android:gravity="center_vertical" 
+android:orientation="horizontal" 
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content"
+xmlns:android="http://schemas.android.com/apk/res/android">
+	<LinearLayout 
+	android:orientation="vertical" 
+	android:layout_width="0dip" 
+	android:layout_weight="1.0"
+	android:layout_height="wrap_content"
+	 >
+    	<TextView 
+		android:textSize="14.0dip" 
+		android:gravity="center_vertical"
+		android:textColor="@color/white" 
+		android:id="@+id/download_title" 
+		android:layout_width="wrap_content" 
+		android:layout_marginLeft="5dip"
+		android:layout_height="wrap_content" 
+		android:maxLines="2" 
+		android:lines="2" 
+		android:text="1223333"
+		 />
+     	<TextView 
+			android:textSize="12.0dip" 
+			android:layout_marginLeft="5dip"
+			android:layout_weight="1.0" 
+			android:textColor="@color/gray" 
+			android:id="@+id/download_size" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" 
+			android:maxLines="1" 
+			android:singleLine="true" 
+			android:text="1223333"
+			/> 
+		</LinearLayout>
+        <LinearLayout 
+		android:gravity="center_vertical" 
+		android:orientation="horizontal" 
+		android:layout_width="0dip" 
+		android:layout_height="wrap_content" 
+		android:layout_marginTop="5.0dip"
+		android:layout_weight="2.0"
+		>
+            <ProgressBar 
+			android:id="@+id/download_progress" 
+			android:layout_width="0.0dip" 
+			android:layout_height="8.0dip" 
+			android:max="100" 
+			android:layout_weight="3.0" 
+			style="@style/download_progressBarStyleHorizontal" />
+            <TextView 
+			android:textSize="12.0dip" 
+			android:textColor="@color/gray" 
+			android:id="@+id/download_progress_text" 
+			android:layout_width="0.0dip" 
+			android:layout_height="wrap_content" 
+			android:layout_marginLeft="5.0dip" 
+			android:singleLine="true" 
+			android:layout_weight="1.0" />
+        </LinearLayout> 
+       <ImageButton 
+           android:id="@+id/btnCancel"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginRight="5dip"
+           android:background="@drawable/btnremove"
+           />
+</LinearLayout>

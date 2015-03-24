@@ -1,0 +1,36 @@
+/******************************************************************
+*
+*	CyberUtil for Java
+*
+*	Copyright (C) Satoshi Konno 2002
+*
+*	File: ListenerList.java
+*
+*	Revision;
+*
+*	12/30/02
+*		- first revision.
+*
+******************************************************************/
+
+package org.cybergarage.util;
+
+import java.util.Vector;
+
+/** ListenerList 继承  Vector */
+@SuppressWarnings("rawtypes")
+public class ListenerList extends Vector
+{
+	private static final long serialVersionUID = 1L;
+
+	/** 添加对象到  ListenerList 集合中，如果集合中包含此对象返回false，否则集合中添加对象返回true*/
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean add(Object obj)
+	{
+		if (0 <= indexOf(obj))
+			return false;
+		return super.add(obj);
+	}
+}
+

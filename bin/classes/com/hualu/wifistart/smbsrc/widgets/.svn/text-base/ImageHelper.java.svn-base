@@ -1,0 +1,40 @@
+package com.leoman.wifidisk.src.widgets;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
+
+public class ImageHelper {
+	static public BitmapDrawable GeneralScaleBmpByRID(Context context,int rid,RectF rectF){
+		//������Ҫ������ͼƬ��������һ��ͼƬ
+        Bitmap bitmapOrg = BitmapFactory.decodeResource(context.getResources(),rid);
+        
+        //��ȡ���ͼƬ�Ŀ�͸�
+        int width = bitmapOrg.getWidth();
+        int height = bitmapOrg.getHeight();
+        
+        //����Ԥת���ɵ�ͼƬ�Ŀ�Ⱥ͸߶�
+        float newWidth = rectF.width();
+        float newHeight = rectF.height();
+        
+        //���������ʣ��³ߴ��ԭʼ�ߴ�
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        
+        // ��������ͼƬ�õ�matrix����
+        Matrix matrix = new Matrix();
+        
+        // ����ͼƬ����
+        matrix.postScale(scaleWidth, scaleHeight);
+        
+        // �����µ�ͼƬ
+        Bitmap resizedBitmap = Bitmap.createBitmap(bitmapOrg, 0, 0,width, height, matrix, true);
+        
+        //�����洴����Bitmapת����Drawable����ʹ�������ʹ����ImageView, ImageButton��
+        BitmapDrawable bmd = new BitmapDrawable(resizedBitmap);
+        return bmd;
+	}
+}

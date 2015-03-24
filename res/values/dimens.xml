@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_texture_width">120.0px</dimen>
+    <dimen name="btn_width">95dip</dimen>
+    <dimen name="left_list_font_size">16sp</dimen>
+    <dimen name="btn_margin">15dip</dimen>
+    
+    <dimen name="loading_dialog_width">180.0dip</dimen>
+    <dimen name="loading_dialog_height">60.0dip</dimen>    
+</resources>

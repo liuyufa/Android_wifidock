@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_vertical" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:layout_marginTop="2dip"
+    >
+     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dip"        
+        android:layout_marginLeft="3dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/music_item_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="#ffffffff"
+            android:textSize="18dp"
+            android:text="依然爱你"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/music_item_singer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="5dip"
+            android:textColor="#9fffffff"
+            android:text="王力宏"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/music_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingRight="5dip"
+        android:text="03:42"
+        android:textColor="#9fffffff" />
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	<com.hualu.wifistart.views.AutoTextView 
+	android:textSize="16.0dip" 
+	android:textStyle="bold" 
+	android:id="@+id/statusTitle" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content" 
+	android:layout_marginLeft="4.0dip" 
+	android:layout_marginRight="4.0dip" 
+	android:text="@string/statusTittle" />
+    	<RelativeLayout 
+    	    android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    	    >
+		    <com.hualu.wifistart.views.PivotControl 
+			android:id="@+id/statusPivot" 
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" 
+			android:layout_marginLeft="4.0dip" 
+			android:layout_marginTop="0.0dip" 
+			android:layout_marginRight="4.0dip" 
+			android:layout_weight="1.0" />
+	 </RelativeLayout> 
+</LinearLayout>

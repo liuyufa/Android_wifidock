@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/color_white">
+<LinearLayout
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+  <LinearLayout  
+  style="@style/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+	  
+	  <TextView android:id="@+id/fileName"
+	  style="@style/tvTitle"
+	  android:layout_width="match_parent"
+	  android:layout_height="wrap_content"
+	  android:textColor="#000000"/>
+  
+  </LinearLayout>
+  <ImageView android:layout_width="match_parent"
+  android:layout_height="1dip"
+  android:background="@color/gray"/>
+  <LinearLayout  
+  style="@style/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+  
+	  <TextView 
+	  style="@style/tvTip"
+	  android:layout_height="wrap_content"
+	  android:text="@string/tip_filetype"
+	  android:textColor="#000000"/>
+	  
+	  <TextView android:id="@+id/fileType"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:textColor="#777777"/>
+  
+  </LinearLayout>
+  
+  <LinearLayout  
+  style="@style/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+  
+	  <TextView 
+	  style="@style/tvTip"
+	  android:layout_height="wrap_content"
+	  android:text="@string/tip_filepath"
+	  android:textColor="#000000"/>
+	  
+	  <TextView android:id="@+id/filePath"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:textColor="#777777"/>
+  
+  </LinearLayout>
+  
+  <LinearLayout  
+  style="@style/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+  
+	  <TextView 
+	  style="@style/tvTip"
+	  android:layout_height="wrap_content"
+	  android:text="@string/tip_include"
+	  android:textColor="#000000"/>
+	  
+	  <TextView android:id="@+id/include"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:textColor="#777777"/>
+  
+  </LinearLayout>
+  
+  <LinearLayout  
+  style="@style/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+  
+	  <TextView 
+	  style="@style/tvTip"
+	  android:layout_height="wrap_content"
+	  android:text="@string/tip_filesize"
+	  android:textColor="#000000"/>
+	  
+	  <TextView android:id="@+id/fileSize"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:textColor="#777777"/>
+  
+  </LinearLayout>
+  <ImageView android:layout_width="match_parent"
+  android:layout_height="1dip"
+  android:background="@color/gray"/>
+  <LinearLayout  
+  style="@style/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+  
+	  <TextView 
+	  style="@style/tvTip"
+	  android:layout_height="wrap_content"
+	  android:text="@string/tip_createdate"
+	  android:textColor="#000000"/>
+	  
+	  <TextView android:id="@+id/createDate"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:textColor="#777777"/>
+  
+  </LinearLayout>
+  
+  <LinearLayout  
+  style="@style/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+  
+	  <TextView 
+	  style="@style/tvTip"
+	  android:layout_height="wrap_content"
+	  android:text="@string/tip_modifydate"
+	  android:textColor="#000000"/>
+	  
+	  <TextView android:id="@+id/modifyDate"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:textColor="#777777"/>
+  
+  </LinearLayout>
+  <ImageView android:layout_width="match_parent"
+  android:layout_height="1dip"
+  android:background="@color/gray"/>
+  <LinearLayout  
+  style="@style/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+  
+	  <TextView 
+	  style="@style/tvTip"
+	  android:layout_height="wrap_content"
+	  android:text="@string/tip_canwrite"
+	  android:textColor="#000000"/>
+	  
+	  <TextView android:id="@+id/canWrite"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:textColor="#777777"/>
+  
+  </LinearLayout>
+  
+  <LinearLayout  
+  style="@style/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+  
+	  <TextView 
+	  style="@style/tvTip"
+	  android:layout_height="wrap_content"
+	  android:text="@string/tip_canread"
+	  android:textColor="#000000"/>
+	  
+	  <TextView android:id="@+id/canRead"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:textColor="#777777"/>
+  
+  </LinearLayout>
+  
+  <LinearLayout 
+  style="@style/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+  
+	  <TextView 
+	  style="@style/tvTip"
+	  android:layout_height="wrap_content"
+	  android:text="@string/tip_ishide"
+	  android:textColor="#000000"/>
+	  
+	  <TextView android:id="@+id/isHide"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:textColor="#777777"/>
+  
+  </LinearLayout>
+</LinearLayout>
+</ScrollView>

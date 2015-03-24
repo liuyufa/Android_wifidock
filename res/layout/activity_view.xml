@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+       <RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+
+	<LinearLayout 
+	    android:layout_height="wrap_content" 
+	    android:id="@+id/linearLayout1" 
+	    android:layout_alignParentTop="true" 
+	    android:layout_alignParentLeft="true" 
+	    android:layout_marginLeft="20dip" 
+	    android:layout_width="fill_parent" 
+	    android:orientation="vertical">
+        <TextView 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:text="@string/view_actity_lable_info"></TextView>
+        <TextView 
+            android:id="@+id/view_activity_textView_info" 
+            android:text="" 
+            android:layout_height="wrap_content" 
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_width="fill_parent"
+             android:layout_marginLeft="20dip"></TextView>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout2" android:orientation="vertical" android:layout_below="@+id/linearLayout1" android:layout_alignLeft="@+id/linearLayout1" android:layout_width="fill_parent">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/view_actity_lable_dele"></TextView>
+        <TextView android:id="@+id/view_activity_textView_dele" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="" android:layout_marginLeft="20dip" android:layout_width="fill_parent"></TextView>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout3" android:layout_below="@+id/linearLayout2" android:layout_alignLeft="@+id/linearLayout2" android:layout_width="fill_parent">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/view_actity_lable_size"></TextView>
+        <TextView android:id="@+id/view_activity_textView_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:singleLine="true"></TextView>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout4" android:layout_below="@+id/linearLayout3" android:layout_alignLeft="@+id/linearLayout3" android:layout_width="fill_parent">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/view_actity_lable_soft"></TextView>
+        <TextView android:id="@+id/view_activity_textView_soft" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:singleLine="true"></TextView>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout5" android:layout_below="@+id/linearLayout4" android:layout_alignLeft="@+id/linearLayout4" android:layout_width="fill_parent">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/view_actity_lable_index"></TextView>
+        <TextView android:id="@+id/view_activity_textView_index" android:layout_height="wrap_content" android:text="" android:layout_width="fill_parent"></TextView>
+    </LinearLayout>
+
+</RelativeLayout>
+    </ScrollView>  

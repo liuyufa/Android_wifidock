@@ -1,0 +1,1 @@
+package com.leoman.wifidisk.src.widgets;import android.content.Context;import android.view.View;public class TitleView extends View {	public TitleView(Context context) {		super(context);	}}

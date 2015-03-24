@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="intent_connect_ftp_failue">ftp服务器连接失败！</string>
+    <string name="intent_ftp_update_failue">文件上传失败！</string>
+    <string name="intent_ftp_update_success">您的共享操作成功！\n\n<h1>谢谢您的共享，本软件有了您的支持将会更加完美！</h1></string>
+    <string name="intent_ftp_login_failure">登录远程空间失败</string>
+    <string name="intent_ftp_Exception">在共享数据库时出现错误：</string>
+    
+    <string name="intent_progress_ftp_connect">开始与远程空间建立连接</string>
+    <string name="intent_progress_ftp_login">进行登录验证合法性</string>
+    <string name="intent_progress_ftp_update">开始进行上传共享操作</string>
+    
+    <string name="intent_alert_dialog_title">提示</string>
+    <string name="intent_alert_dialog_OK">确定</string>
+    
+</resources>
+ 

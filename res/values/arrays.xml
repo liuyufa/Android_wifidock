@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bkEntries">
+        <item>Black</item>
+        <item>White</item>
+        <item>System wallpaper</item>
+    </string-array>
+    <string-array name="bkValues">
+        <item>\#FF000000</item>
+        <item>\#FFFFFFFF</item>
+        <item>wallpaper</item>
+    </string-array>
+    <string-array name="themeEntries">
+        <item>Green</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Custom color</item>
+    </string-array>
+    <string-array name="themeValues">
+        <item>\#FF76C333</item>
+        <item>\#FFE01010</item>
+        <item>\#FF1BA1E2</item>
+    </string-array>
+    <string-array name="tilesize">
+        <item>1x1 tile</item>
+        <item>2x1 tile (horizontal)</item>
+        <item>1x2 tile (vertical)</item>
+    </string-array>
+    <string-array name="tilesizevalues">
+        <item>1x1</item>
+        <item>2x1</item>
+        <item>1x2</item>
+    </string-array>
+    <string-array name="tiletypes">
+        <item>Application icon</item>
+        <item>Custom icon</item>
+    </string-array>
+    <string-array name="tiletypevalues">
+        <item>stock</item>
+        <item>custom</item>
+    </string-array>
+    <string-array name="bmapsources">
+        <item>Bundled bitmap</item>
+        <item>Bitmap from SD card</item>
+    </string-array>
+    <string-array name="bmapvalues">
+        <item>stock</item>
+        <item>sdcard</item>
+    </string-array>
+    <string-array name="tileextras">
+        <item>Nothing</item>
+        <item>Full-tile bitmap (1x1 only)</item>
+        <item>Add missed phone count</item>
+        <item>Add unread SMS/MMS count</item>
+        <item>Add GMail unread count</item>
+        <item>Contacts-tile</item>
+        <item>Calendar 2x1-tile</item>
+        <item>2x1 tile without bar</item>
+    </string-array>
+    <string-array name="tileextravalues">
+        <item>none</item>
+        <item>bitmaptile</item>
+        <item>phonetile</item>
+        <item>smstile</item>
+        <item>gmailtile</item>
+        <item>contactstile</item>
+        <item>calendartile</item>
+        <item>barlesshub</item>
+    </string-array>
+    <string-array name="notifyEntries">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="notifyValues">
+        <item>yes</item>
+        <item>no</item>
+    </string-array>
+    <string-array name="layoutAnims">
+        <item>Fly animation</item>
+        <item>Fade animation</item>
+        <item>No animations</item>
+    </string-array>
+    <string-array name="layoutAnimVals">
+        <item>fly</item>
+        <item>fade</item>
+        <item>off</item>
+    </string-array>
+    <string-array name="statuVis">
+        <item>Visible</item>
+        <item>Hidden</item>
+    </string-array>
+    <string-array name="statusVisValues">
+        <item>on</item>
+        <item>off</item>
+    </string-array>
+    <string-array name="widgetsizes">
+        <item>1x1 tile</item>
+        <item>2x1 tile</item>
+    </string-array>
+    <string-array name="widgetsizevals">
+        <item>1x1</item>
+        <item>2x1</item>
+    </string-array>
+    <string-array name="widgetbkgs">
+        <item>Transparent</item>
+        <item>Current theme color</item>
+    </string-array>
+    <string-array name="widgetbkgvals">
+        <item>transparent</item>
+        <item>theme</item>
+    </string-array>
+    <string-array name="drawers">
+        <item>WP7 style</item>
+        <item>Android launcher style</item>
+    </string-array>
+    <string-array name="drawervals">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="statusbarEntries">
+        <item>White</item>
+        <item>Black</item>
+    </string-array>
+    <string-array name="statusbarValues">
+        <item>white</item>
+        <item>black</item>
+    </string-array>
+    <string-array name="homeAnimations">
+        <item>Animate tile layout</item>
+        <item>No layout animation</item>
+    </string-array>
+    <string-array name="homeAnimationVals">
+        <item>on</item>
+        <item>off</item>
+    </string-array>
+    <string-array name="settingTitles">
+        <item>settings</item>
+        <item>filtered apps</item>
+        <item>folders</item>
+        <item>credits</item>
+    </string-array>
+    <string-array name="folderSettingTitles">
+        <item>folder</item>
+    </string-array>
+    <string-array name="specialTileEntries">
+        <item>Widget tile</item>
+        <item>Folder tile</item>
+        <item>Webpage tile</item>
+        <item>Mail tile</item>
+        <item>Contact tile</item>
+        <item>Picture hub</item>
+    </string-array>
+    <string-array name="specialTileValues">
+        <item>widget</item>
+        <item>folder</item>
+        <item>webpage</item>
+        <item>email</item>
+        <item>contact</item>
+        <item>pichub</item>
+    </string-array>
+    <string-array name="webTileSizeEntries">
+        <item>1x1 tile</item>
+        <item>2x1 tile (horizontal)</item>
+        <item>1x2 tile (vertical)</item>
+    </string-array>
+    <string-array name="webTileSizeValues">
+        <item>1x1</item>
+        <item>2x1</item>
+        <item>1x2</item>
+    </string-array>
+    <string-array name="mailboxTypes">
+        <item>Generic IMAP</item>
+        <item>GMail</item>
+        <item>Yahoo</item>
+        <item>Exchange 2007SP1/2010</item>
+    </string-array>
+    <string-array name="mailboxSettingPages">
+        <item>mailbox</item>
+        <item>visuals</item>
+    </string-array>
+    <string-array name="dropDurationValues">
+        <item>Never disappear</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+    </string-array>
+    <string-array name="foldertileSettingPages">
+        <item>folder</item>
+        <item>visuals</item>
+    </string-array>
+	<string-array name="open_as_items">
+        <item>@string/sub_menu_txt</item>
+        <item>@string/sub_menu_audio</item>
+        <item>@string/sub_menu_video</item>
+        <item>@string/sub_menu_pic</item>
+    </string-array>
+	<string-array name="address_type">
+        <item>@string/dhcp_ip</item>
+        <item>@string/static_ip</item>
+        <item>@string/ppoe</item>
+        <item>@string/_3G</item>
+    </string-array>
+    <string-array name="area">
+      <item>@string/china</item>        
+    </string-array>
+	<string-array name="isp">
+        <item>@string/china_telecom</item>
+        <item>@string/china_mobile</item>
+        <item>@string/china_unicom</item>
+    </string-array>
+</resources>

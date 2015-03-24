@@ -1,0 +1,1 @@
+package com.hualu.wifistart.smbsrc.widgets;import android.content.Context;import android.view.View;public class OpationView extends View {	public OpationView(Context context) {		super(context);	}}

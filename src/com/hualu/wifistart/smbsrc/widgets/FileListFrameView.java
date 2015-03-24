@@ -1,0 +1,1 @@
+package com.hualu.wifistart.smbsrc.widgets;import android.content.Context;import android.view.View;public class FileListFrameView extends View {	OpationView 	opationView;	TitleView 		titleView;	ContentView     fileListView;	public FileListFrameView(Context context) {		super(context);	}}

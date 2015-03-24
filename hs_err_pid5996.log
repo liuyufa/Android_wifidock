@@ -1,0 +1,85 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+#  Internal Error (classFileParser.cpp:2923), pid=5996, tid=3708
+#  Error: ShouldNotReachHere()
+#
+# Java VM: Java HotSpot(TM) Client VM (11.0-b15 mixed mode windows-x86)
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x01359c00):  JavaThread "Unknown thread" [_thread_in_vm, id=3708, stack(0x00170000,0x001c0000)]
+
+Stack: [0x00170000,0x001c0000]
+
+[error occurred during error reporting (printing native stack), id 0xc0000005]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x01359c00 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=3708, stack(0x00170000,0x001c0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Dynamic libraries:
+0x00400000 - 0x00424000 	C:\Java\jdk1.6.0_10\bin\javaw.exe
+0x76e30000 - 0x76f6c000 	C:\Windows\SYSTEM32\ntdll.dll
+0x75b10000 - 0x75be4000 	C:\Windows\system32\kernel32.dll
+0x75030000 - 0x7507b000 	C:\Windows\system32\KERNELBASE.dll
+0x75d60000 - 0x75e00000 	C:\Windows\system32\ADVAPI32.dll
+0x758b0000 - 0x7595c000 	C:\Windows\system32\msvcrt.dll
+0x77040000 - 0x77059000 	C:\Windows\SYSTEM32\sechost.dll
+0x760e0000 - 0x76182000 	C:\Windows\system32\RPCRT4.dll
+0x754a0000 - 0x75569000 	C:\Windows\system32\USER32.dll
+0x75860000 - 0x758ae000 	C:\Windows\system32\GDI32.dll
+0x76190000 - 0x7619a000 	C:\Windows\system32\LPK.dll
+0x75e80000 - 0x75f1d000 	C:\Windows\system32\USP10.dll
+0x75480000 - 0x7549f000 	C:\Windows\system32\IMM32.DLL
+0x76f70000 - 0x7703c000 	C:\Windows\system32\MSCTF.dll
+0x7c340000 - 0x7c396000 	C:\Java\jdk1.6.0_10\jre\bin\msvcr71.dll
+0x6d8b0000 - 0x6db06000 	C:\Java\jdk1.6.0_10\jre\bin\client\jvm.dll
+0x734b0000 - 0x734e2000 	C:\Windows\system32\WINMM.dll
+0x74eb0000 - 0x74efc000 	C:\Windows\system32\apphelp.dll
+0x6d330000 - 0x6d338000 	C:\Java\jdk1.6.0_10\jre\bin\hpi.dll
+0x75470000 - 0x75475000 	C:\Windows\system32\PSAPI.DLL
+0x6d860000 - 0x6d86c000 	C:\Java\jdk1.6.0_10\jre\bin\verify.dll
+0x6d3d0000 - 0x6d3ef000 	C:\Java\jdk1.6.0_10\jre\bin\java.dll
+0x6d8a0000 - 0x6d8af000 	C:\Java\jdk1.6.0_10\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=GBK -Xbootclasspath:D:\android-sdk\platforms\android-17\android.jar 
+java_command: com.hualu.wifistart.ReadVCF
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Java\jdk1.6.0_10
+CLASSPATH=.;
+PATH=C:/Java/jdk1.6.0_10/bin/../jre/bin/client;C:/Java/jdk1.6.0_10/bin/../jre/bin;C:/Java/jdk1.6.0_10/bin/../jre/lib/i386;C:\Java\jdk1.6.0_10\bin;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;D:\svn\bin;D:\svnclient\bin;D:\eclipse;
+USERNAME=Administrator
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.1 Build 7601 Service Pack 1
+
+CPU:total 4 (8 cores per cpu, 2 threads per core) family 6 model 10 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, ht
+
+Memory: 4k page, physical 2097151k(976268k free), swap 4194303k(3127744k free)
+
+vm_info: Java HotSpot(TM) Client VM (11.0-b15) for windows-x86 JRE (1.6.0_10-rc2-b32), built on Sep 12 2008 00:52:11 by "java_re" with MS VC++ 7.1
+
+time: Thu Jan 15 18:24:20 2015
+elapsed time: 0 seconds
+

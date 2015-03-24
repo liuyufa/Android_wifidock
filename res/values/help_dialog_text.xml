@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="help_close">关闭</string>
+   <string name="help_dialog_text">  
+    <i>作者: LEO</i>  
+    \n  
+    \n  
+    <i>WIFI 外部存储</i>  
+    \n  
+    \n
+</string>   
+</resources>
+  

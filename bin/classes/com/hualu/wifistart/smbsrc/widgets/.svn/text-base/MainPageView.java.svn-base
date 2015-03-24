@@ -1,0 +1,92 @@
+package com.leoman.wifidisk.src.widgets;
+
+import java.util.List;
+
+import jcifs.smb.SmbFile;
+import android.content.Context;
+import android.graphics.PointF;
+
+import com.leoman.wifidisk.src.R;
+import com.leoman.wifidisk.src.Singleton;
+import com.leoman.wifidisk.src.WfDiskMainPageActivity;
+import com.leoman.wifidisk.src.Helper.SmbHelper;
+import com.leoman.wifidisk.src.Helper.wfDiskInfo;
+public class MainPageView extends BaseImageView {	
+	private String selectResult = "";
+	private Boolean isSelectDiskStyle = false;
+	public MainPageView(Context context) {
+		super(context);
+	}
+	public MainPageView(Context context,Boolean isSelectDiskStyle) {
+		super(context);
+		this.isSelectDiskStyle = isSelectDiskStyle;
+	}
+
+	public String getResultCode() {
+		return selectResult;
+	}
+	
+	protected void doPressButton(ImageButton btn, PointF curPos){
+		super.doPressButton(btn,curPos);
+	}
+	
+	protected void doReleaseButton(ImageButton btn, PointF curPos){
+		super.doReleaseButton(btn,curPos);
+		if(!this.isSelectDiskStyle) ((WfDiskMainPageActivity)this.getContext()).doClick(btn.cmd);
+	}
+	
+	protected void doBeforeLoadImage(int w, int h) {
+		super.doBeforeLoadImage(w,h);
+		this.backImageID = R.drawable.pageback;
+		if(!this.isSelectDiskStyle)
+		bmBtns.add(new ImageButton(R.drawable.wifi_share_version,R.drawable.wifi_share_version,"",	 
+				"",		new PointF(0.323f, 0.021f),true));
+		bmBtns.add(new ImageButton(R.drawable.btn_setting,R.drawable.btn_setting_on,Singleton.SELECTED_SETTING,	 
+				"",		new PointF(0.173f, 0.270f),true));
+		bmBtns.add(new ImageButton(R.drawable.btn_local,R.drawable.btn_local_on,Singleton.SELECTED_LOCAL,	 
+				"",		new PointF(0.173f, 0.352f),true));
+		bmBtns.add(new ImageButton(R.drawable.btn_disk1,R.drawable.btn_disk1_on,Singleton.SELECTED_SDCARD1,	 
+				"",		new PointF(0.173f, 0.436f),true));
+		bmBtns.add(new ImageButton(R.drawable.btn_disk2,R.drawable.btn_disk2_on,Singleton.SELECTED_SDCARD2,	 
+				"",		new PointF(0.173f, 0.518f),true));
+	}
+	
+	static public void initDiskInfo(){
+		Singleton.instance().disks.clear();
+		String smbRoot = Singleton.SMB_ROOT;
+		String localRoot =Singleton.LOCAL_ROOT;
+		Singleton.instance().disks.add(new wfDiskInfo(localRoot,"本地存储"));
+		SmbHelper smbHelper = new SmbHelper();
+		try {
+			List<SmbFile> allFile = smbHelper.dir(smbRoot,false);
+			int remoteIndex = 0;
+			for (SmbFile smbFile : allFile) {
+				wfDiskInfo info = new wfDiskInfo();
+				info.path = smbFile.getPath();
+				if(smbFile.getName().toLowerCase().contains("sd")){
+					remoteIndex++;
+					info.des = "外部存储"+ String.format("%d", remoteIndex);
+					Singleton.instance().disks.add(info);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	static public wfDiskInfo getDiskInfo(String btnName) {
+		if (btnName.equals(Singleton.SELECTED_SETTING)) {
+			return null;
+		}
+		if (btnName.equals(Singleton.SELECTED_LOCAL)) {
+			return Singleton.instance().disks.get(0);
+		}
+		if (btnName.equals(Singleton.SELECTED_SDCARD1)) {
+			return Singleton.instance().disks.get(1);
+		}
+		if (btnName.equals(Singleton.SELECTED_SDCARD2)) {
+			return Singleton.instance().disks.get(2);
+		}
+		return null;
+	}
+}

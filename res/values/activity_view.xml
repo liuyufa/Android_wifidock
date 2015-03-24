@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="view_actity_lable_name">文件名称：</string>
+    <string name="view_actity_lable_info">文件信息：</string>
+    <string name="view_actity_lable_dele">删除后果：</string>
+    <string name="view_actity_lable_soft">生成软件：</string>
+    <string name="view_actity_lable_index">删除建议：</string>
+    <string name="view_actity_lable_size">文件大小：</string>
+    <string name="view_actity_text_unknow_index">未知删除建议，请谨慎操作</string>
+    
+</resources>
+ 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mRefresh" android:title="@string/menu_refresh" /> 
+    <item android:id="@+id/mSslectAll" android:title="@string/menu_select_all" /> 
+    <item android:id="@+id/mDelete" android:title="@string/menu_delete_selected" />
+    <item android:id="@+id/mCopy" android:title="@string/menu_copy_selected" /> 
+    <item android:id="@+id/mCut" android:title="@string/menu_cut_selected" /> 
+    <item android:id="@+id/mAddList" android:title="@string/addPlayList" /> 
+</menu>

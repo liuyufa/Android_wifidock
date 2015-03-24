@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:orientation="horizontal"  
+    android:layout_width="fill_parent"  
+    android:layout_height="fill_parent"  
+    >  
+  <FrameLayout  
+    android:id="@+id/preview"  
+    android:layout_width="fill_parent"  
+    android:layout_height="fill_parent" 
+    >    
+    </FrameLayout> 
+    <TextView
+		 android:id="@+id/indicator"
+		 android:layout_width="fill_parent"
+		 android:layout_height="wrap_content"
+		 android:text="视频录制"
+		 android:gravity="center"
+		 android:background="#7f000000">
+		</TextView>	
+    <RelativeLayout 
+		android:id="@+id/RelativeLayout01"
+		android:layout_height="fill_parent" 
+		android:layout_width="fill_parent"
+		android:layout_below="@id/indicator"
+		>	
+		<RelativeLayout 
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:layout_alignParentRight="true" 
+			android:layout_alignParentBottom="true"
+			android:id="@+id/rlyCapture"			
+		    >
+		    <!-- android:background="@drawable/btn_bg_camera_confirm" -->
+		    <ImageButton			 
+				android:id="@+id/btnRec"
+				android:layout_width="79px" 
+				android:layout_height="75px"					    
+				android:background="@drawable/btn_bg_camera_capture"
+				/>
+				<TextView	
+				android:id="@+id/txtRec"	
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text = "@string/start_rec"		
+				android:layout_alignBottom="@id/btnRec"	
+				android:layout_centerHorizontal="true"
+				/>	
+		</RelativeLayout>	
+	</RelativeLayout> 
+</RelativeLayout> 

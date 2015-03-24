@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+android:orientation="vertical" 
+android:id="@id/rootContainer" 
+android:layout_width="fill_parent"   
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android">    	
+    	<RelativeLayout 
+    	    android:layout_width="fill_parent"
+    		android:layout_height="0dip"
+    		android:layout_weight="7"	    		
+    	    >    	   
+    	   <!--  
+    	    <com.hualu.wifishare.views.PivotControl 
+			android:id="@+id/newPivot" 
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" 
+			android:layout_marginLeft="4.0dip" 
+			android:layout_marginTop="0.0dip" 
+			android:layout_marginRight="4.0dip" 
+			android:layout_weight="1.0" />
+			-->
+			<android.support.v4.view.ViewPager
+	        android:id="@+id/viewpager"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_marginLeft="2.0dip" 
+			android:layout_marginRight="2.0dip" 
+	        android:layout_below="@+id/animTab"
+	        android:layout_gravity="center" 
+	        android:layout_weight="1.0"/>			
+    	</RelativeLayout> 
+</LinearLayout>

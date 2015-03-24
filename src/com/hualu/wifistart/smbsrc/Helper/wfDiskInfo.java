@@ -1,0 +1,1 @@
+package com.hualu.wifistart.smbsrc.Helper;public class wfDiskInfo {		public wfDiskInfo(String path, String des) {		super();		this.path = path;		this.des = des;	}	public wfDiskInfo(){}		public String path;	public String des;}

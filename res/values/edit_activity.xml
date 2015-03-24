@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="edit_activity_lable">编辑</string>
+    <string name="edit_activity_path_lable">路径：</string>
+    <string name="edit_activity_name_lable">名称：</string>
+    <string name="edit_activity_info_lable">说明：</string>
+    <string name="edit_activity_del_lable">删除指数：</string>
+    <string name="edit_activity_software_lable">生成软件：</string>
+    <string name="edit_activity_fc_del_lable">强制删除后果：</string>
+        
+    <string name="edit_activity_button_save_lable">保存</string>
+    <string name="edit_activity_button_cancel_lable">取消</string>
+    <string name="edit_activity_save_tip_save">保存成功</string>
+    <string name="edit_activity_save_tip_update">更新成功</string>   
+    
+    <string-array name="edit_activity_spinner_index">
+        <item>系统文件</item>
+        <item>备份文件</item>
+        <item>大多数用户数据</item> 
+        <item>大多数软件数据</item> 
+        <item>无用文件</item>
+        <item>未知用处</item>
+    </string-array>
+    <string-array name="edit_activity_spinner_index_key">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    
+    
+    <string name="edit_activity_tag_name">编辑信息</string> 
+    <string name="edit_activity_key_name">name</string> 
+    
+    <string name="edit_activity_tag_edit">编辑信息</string> 
+    <string name="edit_activity_key_info">info</string> 
+    <string name="edit_activity_key_soft">soft</string>
+    <string name="edit_activity_key_dele">dele</string>
+    <string name="edit_activity_key_index">index</string>  
+    
+    <string name="edit_activity_title_info">提示信息</string> 
+    <string name="edit_activity_title_soft">生成软件</string>
+    <string name="edit_activity_title_index">删除指数</string>  
+    <string name="edit_activity_title_dele">删除后果</string>
+    
+    <string name="edit_activity_tag_onekey">一键清楚</string>
+    <string name="edit_activity_key_oneKey_isDele">isDele</string>
+    <string name="edit_activity_key_oneKey_isAlert">isAlert</string>  
+    <string name="edit_activity_key_oneKey_alertInfo">alertInfo</string>  
+    
+    <string name="edit_activity_title_oneKey_isDele">可否清楚</string>
+    <string name="edit_activity_title_oneKey_isDele_on">此文件可以被一键清除</string>
+    <string name="edit_activity_title_oneKey_isDele_off">此文件不可以被一键清除</string>
+    <string name="edit_activity_title_oneKey_isAlert">删除时警告</string>  
+    <string name="edit_activity_title_oneKey_alertInfo">警告内容</string>  
+    
+    
+    <string name="edit_activity_summary_nothing">点击修改</string>  
+    
+    <string name="edit_activity_save_status_result_title">edit_activity_save_status</string>
+    <string name="edit_activity_save_status_result_success">edit_activity_save_status_result_success</string>
+    <string name="edit_activity_save_status_result_falure">edit_activity_save_status_result_falure</string> 
+    
+    
+</resources>

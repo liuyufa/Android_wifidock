@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+android:orientation="vertical" 
+android:id="@+id/rootContainer" 
+android:layout_width="fill_parent" 
+android:layout_height="fill_parent"
+android:background="@drawable/mainbg"
+xmlns:android="http://schemas.android.com/apk/res/android">  
+		<RelativeLayout 
+			android:layout_width="fill_parent" 
+		    android:layout_height="0.0dip"		  
+		    android:layout_weight="7.0" 
+	    >
+		<ListView 
+		android:id="@+id/infoList" 
+		android:scrollbars="none" 
+		android:layout_width="match_parent" 
+		android:layout_height="match_parent" 
+		android:cacheColorHint="#00000000" 
+	    android:divider="@null"
+	    android:listSelector="@null" /> 
+	    <LinearLayout 
+		android:orientation="vertical" 
+		android:id="@+id/aboutus" 
+		android:layout_width="match_parent" 
+		android:layout_height="match_parent">
+		     <LinearLayout 
+			android:gravity="center" 
+			android:id="@+id/LinearLayout01"
+			android:orientation="vertical"
+			android:padding="5.0dip" 
+			android:layout_width="match_parent" 
+			android:layout_height="wrap_content">        
+				<TextView 
+				android:textSize="25.0dip" 
+				android:textStyle="bold" 
+				android:textColor="#ffffffff" 
+				android:id="@+id/textView1" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content" 
+				android:layout_gravity="center"
+				android:text="@string/menu_about_us"/>
+				<ImageView
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dip"				
+				/>
+	    	</LinearLayout>
+		    <LinearLayout 
+			android:orientation="horizontal" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content">
+		        <ImageView 
+				android:layout_gravity="center_vertical" 
+				android:layout_width="72.0dip" 
+				android:layout_height="72.0dip" 
+				android:src="@drawable/ic_launcher" />
+		        <LinearLayout 
+				android:layout_gravity="top" 
+				android:orientation="vertical" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:layout_marginLeft="4.0dip" 
+				android:layout_weight="1.0">
+		            <TextView
+					android:textSize="25.0dip" 
+					android:textColor="#ffffffff" 
+					android:layout_gravity="top" 
+					android:id="@+id/apkTitle" 
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" 
+					android:text="WiFiDock" />
+					<TextView 
+					android:textColor="#ffffffff" 
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" 
+					android:layout_marginTop="-8.0dip" 
+					android:text=" V1.4.3" />
+		            <TextView 
+					android:textColor="#ffffffff" 
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" 
+					android:layout_marginTop="-4.0dip" 
+					android:text="@string/set_hualu_info1"
+					/>
+					<!-- 
+					--> 
+					 <TextView 
+					android:textColor="#ffffffff" 
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" 
+					android:layout_marginTop="-4.0dip" 
+					android:text="@string/set_hualu_info2"
+					 />
+					<!-- 
+					-->
+		        </LinearLayout>
+		    </LinearLayout>
+		    <LinearLayout 
+			android:orientation="horizontal" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:layout_marginTop="4.0dip" 
+			>  
+	            <TextView
+				android:textSize="18.0dip" 
+				android:textColor="#ffffffff" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content" 
+				android:text="@string/set_hualu_info3"
+				 />
+	            <!-- 
+					-->
+	            <TextView 
+				android:textSize="18.0dip" 
+				android:textColor="#ffffffff" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content" 
+				android:autoLink="web"
+				android:text="@string/set_hualu_info4" 
+				/>
+	            <!-- 
+					-->       
+	    	</LinearLayout>
+	    	<!-- 
+			<ScrollView 
+			android:scrollbars="none" 
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" 
+			android:layout_weight="1.0">		
+		        <LinearLayout 
+				android:orientation="vertical" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				>          
+		            <TextView 
+					android:textSize="18.0dip" 
+					android:textColor="#ffffffff" 
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content" 
+					android:layout_marginTop="8.0dip" 
+					android:text="更新日志" />
+		            <TableLayout 
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content" 
+					android:layout_marginLeft="8.0dip" 
+					android:shrinkColumns="1"
+					android:id="@+id/table" 
+					> 
+						<TableRow>
+		                    <TextView 
+							android:textColor="#ffffffff" 
+							android:paddingRight="8.0dip" 
+							android:layout_column="0" 
+							android:textSize="16.0dip" 
+							android:text="Version 0.5.0" />
+		                    <TextView 
+							android:textColor="#ffffffff" 
+							android:layout_column="1" 
+							android:textSize="16.0dip" 							
+							android:text="软件框架完成,实现主要功能及界面" />
+		                </TableRow>	
+		                <TableRow>
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:paddingRight="8.0dip" 
+						android:layout_column="0" 
+						android:textSize="16.0dip" 
+						android:text="Version 0.6.0" />
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:layout_column="1" 
+						android:textSize="16.0dip" 
+						android:text="修改文件复制问题，增加远程文件播放等功能" />
+	                </TableRow>
+	                 <TableRow>
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:paddingRight="8.0dip" 
+						android:layout_column="0" 
+						android:textSize="16.0dip" 
+						android:text="Version 0.6.5" />
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:layout_column="1" 
+						android:textSize="16.0dip" 
+						android:text="软件完善，细节修正" />
+	                </TableRow>	
+	                 <TableRow>
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:paddingRight="8.0dip" 
+						android:layout_column="0" 
+						android:textSize="16.0dip" 
+						android:text="Version 0.7.0" />
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:layout_column="1" 
+						android:textSize="16.0dip" 
+						android:text="修改音乐、视频等文件扫描路径" />
+	                </TableRow>	
+	                  <TableRow>
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:paddingRight="8.0dip" 
+						android:layout_column="0" 
+						android:textSize="16.0dip" 
+						android:text="Version 0.7.5" />
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:layout_column="1" 
+						android:textSize="16.0dip" 
+						android:text="远程文件播放，适配新硬件" />
+	                </TableRow>	
+	                <TableRow>
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:paddingRight="8.0dip" 
+						android:layout_column="0" 
+						android:textSize="16.0dip" 
+						android:text="Version 0.8.0" />
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:layout_column="1" 
+						android:textSize="16.0dip" 
+						android:text="搜索播放更正，音乐等增加复制、剪切及粘贴" />
+	                </TableRow>	
+	                <TableRow>
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:paddingRight="8.0dip" 
+						android:layout_column="0" 
+						android:textSize="16.0dip" 
+						android:text="Version 0.8.5" />
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:layout_column="1" 
+						android:textSize="16.0dip" 
+						android:text="文件管理增加搜索功能" />
+	                </TableRow>	
+	                <TableRow>
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:paddingRight="8.0dip" 
+						android:layout_column="0" 
+						android:textSize="16.0dip" 
+						android:text="Version 0.9.5" />
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:layout_column="1" 
+						android:textSize="16.0dip" 
+						android:text="增加应用退出菜单及WiFiStar连接状态监听" />
+	                </TableRow>	
+	                <TableRow>
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:paddingRight="8.0dip" 
+						android:layout_column="0" 
+						android:textSize="16.0dip" 
+						android:text="Version 0.9.8" />
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:layout_column="1" 
+						android:textSize="16.0dip" 
+						android:text="去掉录音备份及外部存储空间信息获取" />
+	                </TableRow>	
+	                <TableRow>
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:paddingRight="8.0dip" 
+						android:layout_column="0" 
+						android:textSize="16.0dip" 
+						android:text="Version 0.9.9" />
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:layout_column="1" 
+						android:textSize="16.0dip" 
+						android:text="搜索模式下文件复制bug修正" />
+	                </TableRow>	
+	                <TableRow>
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:paddingRight="8.0dip" 
+						android:layout_column="0" 
+						android:textSize="16.0dip" 
+						android:text="Version 0.9.9" />
+	                    <TextView 
+						android:textColor="#ffffffff" 
+						android:layout_column="1" 
+						android:textSize="16.0dip" 
+						android:text="传送列表增加下载删除，播放器功能修正" />
+	                </TableRow>											
+		            </TableLayout>
+		        </LinearLayout>
+		    </ScrollView>
+		     -->
+		    </LinearLayout>
+    	</RelativeLayout>
+    	<!--    	 <ImageView 				
+		android:src="@drawable/line" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"		
+	/> -->	
+
+    <LinearLayout 
+    android:id="@+id/bottomBar"
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_weight="1"
+	android:layout_height="0dip"
+	android:layout_alignParentBottom="true"	
+	>
+	    <!--
+	<RelativeLayout
+		    android:id="@+id/rlHome"
+		    android:orientation="horizontal"
+			android:layout_width="0dip"
+			android:layout_height="wrap_content"
+			android:layout_weight="1" 
+			android:background="@drawable/itemdown"									
+			>
+				<ImageButton
+				android:id="@+id/btnHome"
+				android:layout_marginTop="-10dip"
+				android:layout_width="match_parent" 
+				android:layout_height="match_parent"					    
+				android:src="@drawable/home"	
+				android:background="@drawable/bg_bottom_bar"	
+				/>
+				<TextView		
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text = "@string/home"				
+				android:layout_alignParentBottom="true"	
+				android:layout_centerHorizontal="true"
+				/>	
+			<ImageView
+			    android:layout_width="wrap_content"
+			    android:layout_height="match_parent"
+			    android:layout_alignParentRight="true"			   
+			    android:src="@drawable/splitter" />
+		</RelativeLayout>  
+			<RelativeLayout
+		    android:id="@+id/rlHome"
+		    android:orientation="horizontal"
+			android:layout_width="0dip"
+			android:layout_height="wrap_content"
+			android:layout_weight="1" 
+			android:background="@drawable/itemdown"									
+			>
+				<ImageButton
+				android:id="@+id/btnHome"
+				android:layout_marginTop="-10dip"
+				android:layout_width="match_parent" 
+				android:layout_height="match_parent"					    
+				android:src="@drawable/home"	
+				android:background="@drawable/bg_bottom_bar"	
+				/>
+				<TextView		
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text = "@string/home"				
+				android:layout_alignParentBottom="true"	
+				android:layout_centerHorizontal="true"
+				/>	
+			<ImageView
+			    android:layout_width="wrap_content"
+			    android:layout_height="match_parent"
+			    android:layout_alignParentRight="true"			   
+			    android:src="@drawable/splitter" />
+		</RelativeLayout>
+		<RelativeLayout 
+		android:orientation="horizontal"
+		android:layout_width="0dip"
+		android:layout_height="wrap_content" 
+		android:layout_weight="1" 
+		android:id="@+id/rlBack"
+		>		
+			<ImageButton
+			android:id="@+id/btnBack"
+			android:layout_marginTop="-10dip"
+			android:layout_width="match_parent" 
+			android:layout_height="match_parent"					    
+			android:src="@drawable/back"		
+			android:background="@drawable/bg_bottom_bar"	
+			/>
+			<TextView		
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text = "@string/back"		
+			android:layout_alignParentBottom="true"	
+			android:layout_centerHorizontal="true"
+			/>	
+		</RelativeLayout>-->
+	</LinearLayout>
+</LinearLayout>
