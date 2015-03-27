@@ -104,6 +104,7 @@ public class MenuActivity extends Activity {
 	private ActualExportThread mActualExportThread = null;
 	private FileCopyThread mFileCopyThread = null;
 	private SmbFileCopyThread mSmbCopyThread = null;
+	private SmbFileRecoverThread mSmbRecoverThread = null;
 	private AddressBookThread mAddressBookThread = null;
 	
 	final static String TAG = "MenuActivity";
@@ -150,6 +151,7 @@ public class MenuActivity extends Activity {
 	
 	Context mContext;
 	String targetFolder;
+	String srcFolder;
 	HuzAlertDialog alertDialog;
 	HuzAlertDialog passwordDialog;
 	static boolean islock = false;
@@ -213,7 +215,7 @@ public class MenuActivity extends Activity {
 							// TODO Auto-generated method stub
 							final View argView = arg1;
 							
-							if(2==arg2){
+							if(2==arg2||3==arg2){
 								Log.i(TAG, "arg2 ======== 2 ");
 								localListView.showContextMenuForChild(argView);
 								return ;
@@ -574,22 +576,22 @@ public class MenuActivity extends Activity {
 			break;
 		case MENU_COPY_PHOTO_disk0: {
 			targetFolder = disks.get(0).path + "/Wifidockbackups/";
-			copyPhotoDialog();
+			copyPhoto();
 		}
 			break;
 		case MENU_COPY_PHOTO_disk1: {
 			targetFolder = disks.get(1).path + "/Wifidockbackups/";
-			copyPhotoDialog();
+			copyPhoto();
 		}
 			break;
 		case MENU_COPY_PHOTO_disk2: {
 			targetFolder = disks.get(2).path + "/Wifidockbackups/";
-			copyPhotoDialog();
+			copyPhoto();
 		}
 			break;
 		case MENU_COPY_PHOTO_disk3: {
 			targetFolder = disks.get(3).path + "/Wifidockbackups/";
-			copyPhotoDialog();
+			copyPhoto();
 		}
 			break;
 //		case MENU_COPY_RECORD_LOCAL: {
@@ -694,37 +696,37 @@ public class MenuActivity extends Activity {
 			}
 			break;
 			case MENU_RECOVER_PHOTO_LOCAL:
-				if(fileIsExists(MENU_RECOVER_PHOTO_LOCAL,disks)){
-
-				}
-				else{
+				srcFolder = disks.get(0).path + "/Wifidockbackups/";
+				if(FolderIsExists(srcFolder)){
+					recoverPhoto();
+				}else{
 					ToastBuild.toast(MenuActivity.this,
 							R.string.toast_file_not_find);
 				}
 				break;
 			case MENU_RECOVER_PHOTO_SMB1:
-				if(fileIsExists(MENU_RECOVER_PHOTO_SMB1,disks)){
-
-				}
-				else{
+				srcFolder = disks.get(1).path + "/Wifidockbackups/";
+				if(FolderIsExists(srcFolder)){
+					recoverPhoto();
+				}else{
 					ToastBuild.toast(MenuActivity.this,
 							R.string.toast_file_not_find);
 				}
 				break;
 			case MENU_RECOVER_PHOTO_SMB2:
-				if(fileIsExists(MENU_RECOVER_PHOTO_SMB2,disks)){
-
-				}
-				else{
+				srcFolder = disks.get(2).path + "/Wifidockbackups/";
+				if(FolderIsExists(srcFolder)){
+					recoverPhoto();
+				}else{
 					ToastBuild.toast(MenuActivity.this,
 							R.string.toast_file_not_find);
 				}
 				break;
 			case MENU_RECOVER_PHOTO_SMB3:
-				if(fileIsExists(MENU_RECOVER_PHOTO_SMB3,disks)){
-
-				}
-				else{
+				srcFolder = disks.get(3).path + "/Wifidockbackups/";
+				if(FolderIsExists(srcFolder)){
+					recoverPhoto();
+				}else{
 					ToastBuild.toast(MenuActivity.this,
 							R.string.toast_file_not_find);
 				}
@@ -1011,6 +1013,85 @@ public class MenuActivity extends Activity {
 		}
 	}
 	
+	private class SmbFileRecoverThread extends Thread {
+		String mSrcFolderDir;
+		String mDstFolderDir;
+		public SmbFileRecoverThread(String srcDir, String dstDir) {
+			mSrcFolderDir = srcDir;
+			mDstFolderDir = dstDir;
+		}
+
+		public void run() {
+			boolean flag = false;
+			try {
+				SmbFile srcFile = new SmbFile(mSrcFolderDir);
+				String destPath = mDstFolderDir;
+				File destDirFile = new File(destPath);
+				// 目标位置有一个同名文件夹
+				if (destDirFile.exists()) { 
+					
+				}else {
+					destDirFile.mkdirs();
+				}
+				// 获取源文件夹下的子文件和子文件夹
+				SmbFile[] fileList1 = srcFile.listFiles(); 
+				SmbFile[] fileList = new SmbFile[fileList1.length];
+				int j = 0;
+				for (int i = 0; i < fileList1.length; i++) {
+					String nameString = fileList1[i].getName();
+					if (nameString.endsWith(".jpg")
+							|| nameString.endsWith(".gif")
+							|| nameString.endsWith(".bmp")
+							|| nameString.endsWith(".png")
+							|| nameString.endsWith(".jpeg")
+							|| nameString.endsWith(".tif")) {
+						fileList[j] = fileList1[i];
+						j++;
+					}
+				}
+				// 如果源文件夹为空目录则直接设置flag为true，这一步非常隐蔽，debug了很久
+				if (fileList.length == 0) { 
+					return;
+				} else {
+					Message msg=Message.obtain();
+					Bundle bundle=new Bundle();
+					bundle.putString("dest", mDstFolderDir);
+					msg.setData(bundle);
+					msg.what=START;
+					msg.arg1=fileList.length;
+					msg.arg2=0;
+					handler.sendMessage(msg);
+					for (int i = 0; i < j; i++) {
+						SmbFile temp = fileList[i];
+						String srcPath = temp.getPath();
+						String fileName = srcPath.substring(srcPath
+								.lastIndexOf(File.separator));
+						Log.i(TAG, "smbcopy " + srcPath + " " + destPath
+								+ fileName);
+						smbHelper.copyFile(srcPath, destPath + fileName);
+						Message msg2=Message.obtain();
+						msg2.what=INCREACE;
+						handler.sendMessage(msg2);
+					}
+				}
+				Message msg=Message.obtain();
+				msg.what=END;
+				handler.sendMessage(msg);
+				if (flag) {
+					Log.i(TAG, "复制文件夹成功!");
+				}
+			}catch (SmbException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 	private class AddressBookThread extends Thread implements
 		DialogInterface.OnCancelListener {
 			private PowerManager.WakeLock mWakeLock;
@@ -1521,70 +1602,160 @@ public class MenuActivity extends Activity {
 		        }   
 		    }   
 	}
-	private void copyPhotoDialog(){
-		Dialog dialog2 = new HuzAlertDialog.Builder(mContext)
-		.setTitle(R.string.title_comfir_delete)
-		.setMessage(
-				(mContext.getResources()
-						.getString(R.string.backups_choice)))
-		.setPositiveButton(R.string.backups_default,
-				new DialogInterface.OnClickListener() {
-					public void onClick(
-							DialogInterface paramDialogInterface,
-							int paramInt) {
-						paramDialogInterface.dismiss();
-						// 默认备份
-						String srcFolder = Environment
-								.getExternalStorageDirectory()
-								.getPath()
-								+ File.separator
-								+ getString(R.string.dcim_folder)
-								+ File.separator
-								+ getString(R.string.camera_folder);
-						File srcFile = new File(srcFolder);
-						if (!srcFile.exists()) {
-							srcFolder = Environment
-									.getExternalStorageDirectory()
-									.getPath()
-									+ File.separator
-									+ getString(R.string.camera_folder);
-						}
-						File srcFile2 = new File(srcFolder);
-						if (!srcFile2.exists()) {
-							srcFile2.mkdirs();
-						}
-						if (islock) {
-							new Lockfilethread(srcFile2).start();
-						} else {
+	private void copyPhoto(){
+//		Dialog dialog2 = new HuzAlertDialog.Builder(mContext)
+//		.setTitle(R.string.title_comfir_delete)
+//		.setMessage(
+//				(mContext.getResources()
+//						.getString(R.string.backups_choice)))
+//		.setPositiveButton(R.string.backups_default,
+//				new DialogInterface.OnClickListener() {
+//					public void onClick(
+//							DialogInterface paramDialogInterface,
+//							int paramInt) {
+//						paramDialogInterface.dismiss();
+//						// 默认备份
+//						String srcFolder = Environment
+//								.getExternalStorageDirectory()
+//								.getPath()
+//								+ File.separator
+//								+ getString(R.string.dcim_folder)
+//								+ File.separator
+//								+ getString(R.string.camera_folder);
+//						File srcFile = new File(srcFolder);
+//						if (!srcFile.exists()) {
+//							srcFolder = Environment
+//									.getExternalStorageDirectory()
+//									.getPath()
+//									+ File.separator
+//									+ getString(R.string.camera_folder);
+//						}
+//						File srcFile2 = new File(srcFolder);
+//						if (!srcFile2.exists()) {
+//							srcFile2.mkdirs();
+//						}
+//						if (islock) {
+//							new Lockfilethread(srcFile2).start();
+//						} else {
+//
+//							if (targetFolder.startsWith("smb")) {
+//								mSmbCopyThread = new SmbFileCopyThread(
+//										srcFolder, targetFolder);
+//								mSmbCopyThread.start();
+//							} else {
+//								mFileCopyThread = new FileCopyThread(
+//										srcFolder, targetFolder);
+//								mFileCopyThread.start();
+//							}
+//						}
+//					}
+//				})
+//		.setNegativeButton(R.string.backups_undefault,
+//				new DialogInterface.OnClickListener() {
+//					public void onClick(
+//							DialogInterface paramDialogInterface,
+//							int paramInt) {
+//						// 自定义备份
+//						Intent intent = new Intent(mContext,
+//								FileBrowserActivity.class);
+//						intent.putExtra("target", targetFolder);
+//						intent.putExtra("islock", islock);
+//						intent.putExtra("pasString", pasString);
+//						startActivity(intent);
+//						paramDialogInterface.dismiss();
+//					}
+//				}).create();
+//		dialog2.show();
+		// 默认备份
+		String srcFolder = Environment
+				.getExternalStorageDirectory()
+				.getPath()
+				+ File.separator
+				+ getString(R.string.dcim_folder)
+				+ File.separator
+				+ getString(R.string.camera_folder);
+		File srcFile = new File(srcFolder);
+		if (!srcFile.exists()) {
+			srcFolder = Environment
+					.getExternalStorageDirectory()
+					.getPath()
+					+ File.separator
+					+ getString(R.string.camera_folder);
+		}
+		File srcFile2 = new File(srcFolder);
+		if (!srcFile2.exists()) {
+			srcFile2.mkdirs();
+		}
+		if (islock) {
+			new Lockfilethread(srcFile2).start();
+		} else {
 
-							if (targetFolder.startsWith("smb")) {
-								mSmbCopyThread = new SmbFileCopyThread(
-										srcFolder, targetFolder);
-								mSmbCopyThread.start();
-							} else {
-								mFileCopyThread = new FileCopyThread(
-										srcFolder, targetFolder);
-								mFileCopyThread.start();
-							}
-						}
-					}
-				})
-		.setNegativeButton(R.string.backups_undefault,
-				new DialogInterface.OnClickListener() {
-					public void onClick(
-							DialogInterface paramDialogInterface,
-							int paramInt) {
-						// 自定义备份
-						Intent intent = new Intent(mContext,
-								FileBrowserActivity.class);
-						intent.putExtra("target", targetFolder);
-						intent.putExtra("islock", islock);
-						intent.putExtra("pasString", pasString);
-						startActivity(intent);
-						paramDialogInterface.dismiss();
-					}
-				}).create();
-		dialog2.show();
+			if (targetFolder.startsWith("smb")) {
+				mSmbCopyThread = new SmbFileCopyThread(
+						srcFolder, targetFolder);
+				mSmbCopyThread.start();
+			} else {
+				mFileCopyThread = new FileCopyThread(
+						srcFolder, targetFolder);
+				mFileCopyThread.start();
+			}
+		}
+	}
+	private void recoverPhoto(){
+		// 默认还原
+		String targetFolder = Environment.getExternalStorageDirectory()
+				.getPath()
+				+ File.separator
+				+ getString(R.string.dcim_folder)
+				+ File.separator
+				+ getString(R.string.camera_folder);
+		File srcFile = new File(targetFolder);
+		if (!srcFile.exists()) {
+			targetFolder = Environment
+						.getExternalStorageDirectory()
+						.getPath()
+						+ File.separator
+						+ getString(R.string.camera_folder);
+		}
+		File srcFile2 = new File(targetFolder);
+		if (!srcFile2.exists()) {
+			srcFile2.mkdirs();
+		}
+		if (srcFolder.startsWith("smb")) {
+			mSmbRecoverThread = new SmbFileRecoverThread(srcFolder,targetFolder);
+			mSmbRecoverThread.start();
+		}else{
+			mFileCopyThread = new FileCopyThread(srcFolder, targetFolder);
+			mFileCopyThread.start();
+		}
+	}
+	private boolean FolderIsExists(String path){
+		if (path.startsWith("smb")) {
+			try{
+				SmbFile srcFile = new SmbFile(path);
+				if(srcFile.exists()){
+					return true;
+				}
+				else {
+					return false;
+				}
+			}catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else{
+			File srcFile = new File(path);
+			if(srcFile.exists()){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		return false;
 	}
 }
 
