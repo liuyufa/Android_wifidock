@@ -83,10 +83,7 @@ import android.widget.Toast;
 public class MenuActivity extends Activity {
 
 	final int copyItems[] = { R.string.copy_contact, R.string.copy_photo,R.string.recover_contact,R.string.recover_photo};// ,R.string.copy_record
-	// jh- final int
-	// statusItems[]={R.string.status_transfer,R.string.status_play,R.string.status_playing};
 	final int statusItems[] = { R.string.status_transfer };
-	// final int
 	// settingItems[]={R.string.setting_wifishare,R.string.setting_file,R.string.setting_help,R.string.setting_guide,R.string.setting_about};
 	// 用户管理 冲电功能 路由功能 热点功能 U盘功能 在线共享 局端服务 显示设备 进入Web设置 新手指南 关于 退出
 	final int settingItems[] = { R.string.setting_customer,
@@ -95,22 +92,18 @@ public class MenuActivity extends Activity {
 			R.string.setting_local, R.string.setting_display,
 			R.string.setting_share, R.string.setting_upgrade,
 			R.string.setting_guide, R.string.setting_web,
-			R.string.setting_about, R.string.setting_exit, };// R.string.setting_storage,
+			R.string.setting_about, R.string.setting_exit, };
 	ArrayList<String> itemsList;
-	// ImageButton btnHome,btnBack;
 	AddressBookItem addressBookItem;
 	private List<AddressBookItem> itemlist;
-	// luoronghui增加home和back图片转向主页和返回功能
+	//增加home和back图片转向主页和返回功能
 	ImageView btnHome, btnBack;
 	TextView menu;
-	// RelativeLayout rlHome,rlBack;
 	String menuType;
 	public SmbHelper smbHelper = new SmbHelper();
 	private ActualExportThread mActualExportThread = null;
 	private FileCopyThread mFileCopyThread = null;
 	private SmbFileCopyThread mSmbCopyThread = null;
-	private FileCopyThread mFileCopyThread2 = null;
-	private SmbFileCopyThread mSmbCopyThread2 = null;
 	private AddressBookThread mAddressBookThread = null;
 	
 	final static String TAG = "MenuActivity";
@@ -139,8 +132,7 @@ public class MenuActivity extends Activity {
 	private final int MENU_RECOVER_PHOTO_SMB1 = MENU_FIRST + 17;
 	private final int MENU_RECOVER_PHOTO_SMB2 = MENU_FIRST + 18;
 	private final int MENU_RECOVER_PHOTO_SMB3 = MENU_FIRST + 19;
-	// private final int CONFIG_EXPORT_FILE_MIN_INDEX = 1;
-	// private final int CONFIG_EXPORT_FILE_MAX_INDEX = 99999;
+
 
 	private int[] menu_copy_contact = new int[] { MENU_COPY_CONTACT_Disk0,
 			MENU_COPY_CONTACT_Disk1, MENU_COPY_CONTACT_Disk2,
@@ -186,11 +178,8 @@ public class MenuActivity extends Activity {
 		menu = (TextView) findViewById(R.id.menuTitle);
 		initPage1();
 		btnHome = (ImageView) findViewById(R.id.homebg);
-
 		btnHome.setOnClickListener(new btnClickListener());
-
 		btnBack = (ImageView) findViewById(R.id.backbg);
-
 		btnBack.setOnClickListener(new btnClickListener());
 
 	}
@@ -203,28 +192,18 @@ public class MenuActivity extends Activity {
 		finish();
 	}
 
-	private void initPage1()// (View paramView)
+	private void initPage1()
 	{
 		final ListView localListView = (ListView) findViewById(R.id.copyslist);
-
-		// ImageView icon =(ImageView)findViewById(R.id.menuIcon);
-		// TextView txt = (TextView)findViewById(R.id.menuTxt);
 		if (menuType.equals("copy")) {
-			// icon.setImageResource(R.drawable.copybig);
-			// txt.setText(getString(R.string.copysTittle));
 			menu.setText(getString(R.string.copysTittle));
 			registerForContextMenu(localListView);
 			for (int i = 0; i < copyItems.length; i++) {
 				itemsList.add(getResources().getString(copyItems[i]));
 			}
-			// PrefsAdapter adapter = new PrefsAdapter(this,
-			// R.layout.settingsitem, settingsItems);
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 					R.layout.settingitem, R.id.itemTitle, itemsList);
 			localListView.setAdapter(adapter);
-
-			// localListView.setOnCreateContextMenuListener(MenuLis)
-
 			localListView
 					.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -248,7 +227,6 @@ public class MenuActivity extends Activity {
 										@Override
 										public void onListener() {
 											// TODO Auto-generated method stub
-											// islock=true;
 											alertDialog.dismiss();
 											SharedPreferences sh = mContext
 													.getSharedPreferences(
@@ -380,26 +358,18 @@ public class MenuActivity extends Activity {
 										}
 									});
 							alertDialog.show();
-							// localListView.showContextMenuForChild(arg1);
 						}
 
 					});
 		} else if (menuType.equals("status")) {
-			// icon.setImageResource(R.drawable.statusbig);
-			// txt.setText(getString(R.string.statusTittle));
 			// 增加页面主题
 			menu.setText(getString(R.string.statusTittle));
 			for (int i = 0; i < statusItems.length; i++) {
 				itemsList.add(getResources().getString(statusItems[i]));
 			}
-			// PrefsAdapter adapter = new PrefsAdapter(this,
-			// R.layout.settingsitem, settingsItems);
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 					R.layout.settingitem, R.id.itemTitle, itemsList);
 			localListView.setAdapter(adapter);
-
-			// localListView.setOnCreateContextMenuListener(MenuLis)
-
 			localListView
 					.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -407,7 +377,6 @@ public class MenuActivity extends Activity {
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 								int arg2, long arg3) {
 							// TODO Auto-generated method stub
-							// localListView.showContextMenuForChild(arg1);
 							if (arg2 == 0) {
 								Intent intent = new Intent(MenuActivity.this,
 										StatusActivity.class);
@@ -427,20 +396,12 @@ public class MenuActivity extends Activity {
 
 					});
 		} else if (menuType.equals("settings")) {
-			// icon.setImageResource(R.drawable.settingbig);
-			// txt.setText(getString(R.string.settingsTittle));
 			for (int i = 0; i < settingItems.length; i++) {
 				itemsList.add(getResources().getString(settingItems[i]));
 			}
-			// PrefsAdapter adapter = new PrefsAdapter(this,
-			// R.layout.settingsitem, settingsItems);
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 					R.layout.settingitem, R.id.itemTitle, itemsList);
-			// settingAdapter adapter = new settingAdapter(this,itemsList);
 			localListView.setAdapter(adapter);
-
-			// localListView.setOnCreateContextMenuListener(MenuLis)
-
 			localListView
 					.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -502,52 +463,6 @@ public class MenuActivity extends Activity {
 		}
 	}
 
-	/*
-	 * class settingAdapter extends BaseAdapter{ ArrayList<String> items;
-	 * private LayoutInflater mInflater; public settingAdapter(Context context,
-	 * ArrayList<String> itemsList){ super(); //this.mContext = context; items =
-	 * itemsList; mInflater = LayoutInflater.from(context); }
-	 * 
-	 * @Override public int getCount() { // TODO Auto-generated method stub
-	 * return items.size(); }
-	 * 
-	 * @Override public Object getItem(int position) { // TODO Auto-generated
-	 * method stub return items.get(position); }
-	 * 
-	 * @Override public long getItemId(int position) { // TODO Auto-generated
-	 * method stub return position; }
-	 * 
-	 * @Override public View getView(int position, View convertView, ViewGroup
-	 * parent) { // TODO Auto-generated method stub if (convertView == null) {
-	 * convertView = mInflater.inflate(R.layout.settingitem, null); } TextView
-	 * tittle = (TextView)convertView.findViewById(R.id.itemTitle);
-	 * tittle.setText(items.get(position)); SlidButton myBtn =
-	 * (SlidButton)convertView.findViewById(R.id.slipBtn);
-	 * myBtn.SetOnChangedListener(new OnChangedListener(){
-	 * 
-	 * @Override public void OnChanged(boolean checkState) { // TODO
-	 * Auto-generated method stub if (checkState){
-	 * 
-	 * }else{
-	 * 
-	 * } }
-	 * 
-	 * }); //myBtn.onDraw(); return convertView; }
-	 * 
-	 * }
-	 */
-	/*
-	 * ListView.OnCreateContextMenuListener MenuLis=new
-	 * ListView.OnCreateContextMenuListener(){
-	 * 
-	 * @Override public void onCreateContextMenu(ContextMenu menu, View v,
-	 * ContextMenuInfo menuInfo) { // TODO Auto-generated method stub //添加菜单项
-	 * //menu.add(Menu.NONE,Menu_Item1,0,"获取position");
-	 * 
-	 * }
-	 * 
-	 * };
-	 */
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {// jh+ 创建Loading设备名称：TF卡 ，存储 ，手机3项显示
@@ -566,7 +481,7 @@ public class MenuActivity extends Activity {
 					if (disks.get(i).des.equals(".config")) {
 						Log.d(TAG, "find .config file");
 						continue;
-					} else {// jh+ for usb not need backup 2013.12.12
+					} else {
 						if (disks.get(i).des.contains("USB")
 								|| disks.get(i).des.contains("手机"))
 							continue;
@@ -574,17 +489,14 @@ public class MenuActivity extends Activity {
 
 					menu.add(0, menu_copy_contact[i], Menu.NONE,
 							disks.get(i).des);
-					// menu.addSubMenu(disks.get(i).path);
 				}
-				// menu.add(0, MENU_COPY_CONTACT_SMB1, Menu.NONE,
-				// R.string.menu_cut_selected);
 			} else if (selectedPosition == 1) {
 				menu.setHeaderTitle(R.string.copy_photo);
 				for (int i = 0; i < disks.size(); i++) {
 					if (disks.get(i).des.equals(".config")) {
 						Log.d(TAG, "find .config file");
 						continue;
-					} else {// jh+ for usb not need backup 2013.12.12
+					} else {
 						if (disks.get(i).des.contains("USB")
 								|| disks.get(i).des.contains("手机"))
 
@@ -627,501 +539,120 @@ public class MenuActivity extends Activity {
 				}
 			}
 		}
-
-		/*
-		 * // TODO Auto-generated method stub super.onCreateContextMenu(menu, v,
-		 * menuInfo); MenuInflater localMenuInflater = getMenuInflater();
-		 * //ListView localView1 = (ListView)findViewById(R.id.copyslist);
-		 * 
-		 * AdapterView.AdapterContextMenuInfo localAdapterContextMenuInfo =
-		 * (AdapterView.AdapterContextMenuInfo)menuInfo; if
-		 * (localAdapterContextMenuInfo.position == 0)
-		 * localMenuInflater.inflate(R.menu.copycontacts, menu); else if
-		 * (localAdapterContextMenuInfo.position == 1)
-		 * localMenuInflater.inflate(R.menu.copycphotos, menu); else if
-		 * (localAdapterContextMenuInfo.position == 2)
-		 * localMenuInflater.inflate(R.menu.copyrecords, menu);
-		 */
-
 	}
 
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
-		// AdapterView.AdapterContextMenuInfo localAdapterContextMenuInfo =
-		// (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
 		Log.i(TAG, "onContextItemSelected " + item.getTitle());
 		ArrayList<wfDiskInfo> disks = Singleton.instance().disks;
 		switch (item.getItemId()) {
 		case MENU_COPY_CONTACT_Disk0: {
-			// String targetFileName =
-			// getAppropriateFileName(item.getSubMenu());
-			// Log.i(TAG,"copyto " + targetFileName);
-			//String targetFileName = disks.get(0).path + "sdcard0/contacts/";
 			String targetFileName=disks.get(0).path+"contacts/";
-			// String targetFileName = Environment.getExternalStorageDirectory()
-			// +"/contacts/";
-			// File mFile1 = new File("/storage/emulated/0/contacts");
-			// if (!mFile1.exists()) {
-			// mFile1.mkdirs();
-			// }
-			// if (mFile1.canWrite()) {
-			// targetFileName = "/storage/emulated/0/contacts/";
-			// }else {
-			// File mFile2 = new File("/storage/sdcard0/contacts");
-			// if (!mFile2.exists()) {
-			// mFile2.mkdirs();
-			// }
-			// if (mFile2.canWrite()) {
-			// targetFileName= "/storage/sdcard0/contacts/";
-			// }else {
-			// File mFile3 = new File("/storage/sdcard1/contacts");
-			// if (!mFile3.exists()) {
-			// mFile3.mkdirs();
-			// }
-			// if (mFile3.canWrite()) {
-			// targetFileName = "/storage/sdcard1/contacts/";
-			// }else {
-			// Toast.makeText(getBaseContext(),
-			// R.string.effectivedisk, Toast.LENGTH_SHORT)
-			// .show();
-			// finish();
-			// }
-			// }
-			// }
-
-			Log.i("disk0  target desdir===================", targetFileName);
-			mActualExportThread = new ActualExportThread(targetFileName);// "/mnt/sdcard/WifiShare/00001.vcf"
+			mActualExportThread = new ActualExportThread(targetFileName);
 			mActualExportThread.start();
 			break;
 		}
 		case MENU_COPY_CONTACT_Disk1: {
 			String targetFileName = disks.get(1).path + "contacts/";
-			Log.i("disk1  target desdir===================", targetFileName);
-			mActualExportThread = new ActualExportThread(targetFileName);// "/mnt/sdcard/WifiShare/00001.vcf"
+			mActualExportThread = new ActualExportThread(targetFileName);
 			mActualExportThread.start();
 			break;
 
 		}
-
-		/*
-		 * case MENU_COPY_CONTACT_SMB1:{ String targetFileName =
-		 * disks.get(1).path + "contacts.vcf"; try {
-		 * if(disks.get(1).path.contains("sdcard0")){ File file = new
-		 * File(targetFileName); if (file.exists()) file.delete(); } else{
-		 * if(disks.get(1).path.contains("smb")) { SmbFile file = new
-		 * SmbFile(targetFileName); if (file.exists()) file.delete(); } }
-		 * mActualExportThread = new
-		 * ActualExportThread(targetFileName);//"/mnt/sdcard/WifiShare/00001.vcf"
-		 * mActualExportThread.start(); }catch (MalformedURLException e) { //
-		 * TODO Auto-generated catch block e.printStackTrace(); }catch
-		 * (SmbException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); } }
-		 */
 		case MENU_COPY_CONTACT_Disk2: {
 			String targetFileName = disks.get(2).path + "contacts/";
-			Log.i("disk2  target desdir===================", targetFileName);
-			mActualExportThread = new ActualExportThread(targetFileName);// "/mnt/sdcard/WifiShare/00001.vcf"
+			mActualExportThread = new ActualExportThread(targetFileName);
 			mActualExportThread.start();
 		}
 			break;
 		case MENU_COPY_CONTACT_Disk3: {
 			String targetFileName = disks.get(3).path + "contacts/";
-			Log.i("disk3  target desdir===================", targetFileName);
-			mActualExportThread = new ActualExportThread(targetFileName);// "/mnt/sdcard/WifiShare/00001.vcf"
+			mActualExportThread = new ActualExportThread(targetFileName);
 			mActualExportThread.start();
 		}
 			break;
 		case MENU_COPY_PHOTO_disk0: {
 			targetFolder = disks.get(0).path + "/Wifidockbackups/";
-			Dialog dialog2 = new HuzAlertDialog.Builder(mContext)
-					.setTitle(R.string.title_comfir_delete)
-					.setMessage(
-							(mContext.getResources()
-									.getString(R.string.backups_choice)))
-					.setPositiveButton(R.string.backups_default,
-							new DialogInterface.OnClickListener() {
-								public void onClick(
-										DialogInterface paramDialogInterface,
-										int paramInt) {
-									paramDialogInterface.dismiss();
-									// 默认备份
-									String srcFolder = Environment
-											.getExternalStorageDirectory()
-											.getPath()
-											+ File.separator
-											+ getString(R.string.dcim_folder)
-											+ File.separator
-											+ getString(R.string.camera_folder);
-									File srcFile = new File(srcFolder);
-									if (!srcFile.exists()) {
-										srcFolder = Environment
-												.getExternalStorageDirectory()
-												.getPath()
-												+ File.separator
-												+ getString(R.string.camera_folder);
-									}
-									File srcFile2 = new File(srcFolder);
-									if (!srcFile2.exists()) {
-										srcFile2.mkdirs();
-									}
-									if (islock) {
-										new Lockfilethread(srcFile2).start();
-									} else {
-
-										if (targetFolder.startsWith("smb")) {
-											mSmbCopyThread = new SmbFileCopyThread(
-													srcFolder, targetFolder);
-											mSmbCopyThread.start();
-
-											// mSmbCopyThread2 = new
-											// SmbFileCopyThread(
-											// srcFolder2, targetFolder);
-											// mSmbCopyThread2.start();
-										} else {
-											mFileCopyThread = new FileCopyThread(
-													srcFolder, targetFolder);
-											mFileCopyThread.start();
-
-											// mFileCopyThread2 = new
-											// FileCopyThread(
-											// srcFolder2, targetFolder);
-											// mFileCopyThread2.start();
-
-										}
-									}
-
-								}
-							})
-					.setNegativeButton(R.string.backups_undefault,
-							new DialogInterface.OnClickListener() {
-								public void onClick(
-										DialogInterface paramDialogInterface,
-										int paramInt) {
-									// 自定义备份
-									Intent intent = new Intent(mContext,
-											FileBrowserActivity.class);
-									intent.putExtra("target", targetFolder);
-									intent.putExtra("islock", islock);
-									intent.putExtra("pasString", pasString);
-									startActivity(intent);
-									paramDialogInterface.dismiss();
-								}
-							}).create();
-			dialog2.show();
-
-			// Intent intent = new Intent(this, FileBrowserActivity.class);
-			// intent.putExtra("target", targetFolder);
-			// startActivity(intent);
+			copyPhotoDialog();
 		}
 			break;
 		case MENU_COPY_PHOTO_disk1: {
 			targetFolder = disks.get(1).path + "/Wifidockbackups/";
-			Dialog dialog2 = new HuzAlertDialog.Builder(mContext)
-					.setTitle(R.string.title_comfir_delete)
-					.setMessage(
-							(mContext.getResources()
-									.getString(R.string.backups_choice)))
-					.setPositiveButton(R.string.backups_default,
-							new DialogInterface.OnClickListener() {
-								public void onClick(
-										DialogInterface paramDialogInterface,
-										int paramInt) {
-									paramDialogInterface.dismiss();
-									// 默认备份
-									String srcFolder = Environment
-											.getExternalStorageDirectory()
-											.getPath()
-											+ File.separator
-											+ getString(R.string.dcim_folder)
-											+ File.separator
-											+ getString(R.string.camera_folder);
-									File srcFile = new File(srcFolder);
-									if (!srcFile.exists()) {
-										srcFolder = Environment
-												.getExternalStorageDirectory()
-												.getPath()
-												+ File.separator
-												+ getString(R.string.camera_folder);
-									}
-									File srcFile2 = new File(srcFolder);
-									if (!srcFile2.exists()) {
-										srcFile2.mkdirs();
-									}
-									if (islock) {
-										new Lockfilethread(srcFile2).start();
-									} else {
-
-										if (targetFolder.startsWith("smb")) {
-											mSmbCopyThread = new SmbFileCopyThread(
-													srcFolder, targetFolder);
-											mSmbCopyThread.start();
-
-											// mSmbCopyThread2 = new
-											// SmbFileCopyThread(
-											// srcFolder2, targetFolder);
-											// mSmbCopyThread2.start();
-										} else {
-											mFileCopyThread = new FileCopyThread(
-													srcFolder, targetFolder);
-											mFileCopyThread.start();
-
-											// mFileCopyThread2 = new
-											// FileCopyThread(
-											// srcFolder2, targetFolder);
-											// mFileCopyThread2.start();
-
-										}
-									}
-								}
-							})
-					.setNegativeButton(R.string.backups_undefault,
-							new DialogInterface.OnClickListener() {
-								public void onClick(
-										DialogInterface paramDialogInterface,
-										int paramInt) {
-									// 自定义备份
-									Intent intent = new Intent(mContext,
-											FileBrowserActivity.class);
-									intent.putExtra("target", targetFolder);
-									intent.putExtra("islock", islock);
-									intent.putExtra("pasString", pasString);
-									startActivity(intent);
-									paramDialogInterface.dismiss();
-								}
-							}).create();
-			dialog2.show();
-
-			// Intent intent = new Intent(this, FileBrowserActivity.class);
-			// intent.putExtra("target", targetFolder);
-			// startActivity(intent);
+			copyPhotoDialog();
 		}
 			break;
 		case MENU_COPY_PHOTO_disk2: {
 			targetFolder = disks.get(2).path + "/Wifidockbackups/";
-			Dialog dialog2 = new HuzAlertDialog.Builder(mContext)
-					.setTitle(R.string.title_comfir_delete)
-					.setMessage(
-							(mContext.getResources()
-									.getString(R.string.backups_choice)))
-					.setPositiveButton(R.string.backups_default,
-							new DialogInterface.OnClickListener() {
-								public void onClick(
-										DialogInterface paramDialogInterface,
-										int paramInt) {
-									paramDialogInterface.dismiss();
-									// 默认备份
-									String srcFolder = Environment
-											.getExternalStorageDirectory()
-											.getPath()
-											+ File.separator
-											+ getString(R.string.dcim_folder)
-											+ File.separator
-											+ getString(R.string.camera_folder);
-									File srcFile = new File(srcFolder);
-									if (!srcFile.exists()) {
-										srcFolder = Environment
-												.getExternalStorageDirectory()
-												.getPath()
-												+ File.separator
-												+ getString(R.string.camera_folder);
-									}
-									File srcFile2 = new File(srcFolder);
-									if (!srcFile2.exists()) {
-										srcFile2.mkdirs();
-									}
-									if (islock) {
-										new Lockfilethread(srcFile2).start();
-									} else {
-
-										if (targetFolder.startsWith("smb")) {
-											mSmbCopyThread = new SmbFileCopyThread(
-													srcFolder, targetFolder);
-											mSmbCopyThread.start();
-
-											// mSmbCopyThread2 = new
-											// SmbFileCopyThread(
-											// srcFolder2, targetFolder);
-											// mSmbCopyThread2.start();
-										} else {
-											mFileCopyThread = new FileCopyThread(
-													srcFolder, targetFolder);
-											mFileCopyThread.start();
-
-											// mFileCopyThread2 = new
-											// FileCopyThread(
-											// srcFolder2, targetFolder);
-											// mFileCopyThread2.start();
-
-										}
-									}
-								}
-							})
-					.setNegativeButton(R.string.backups_undefault,
-							new DialogInterface.OnClickListener() {
-								public void onClick(
-										DialogInterface paramDialogInterface,
-										int paramInt) {
-									// 自定义备份
-									Intent intent = new Intent(mContext,
-											FileBrowserActivity.class);
-									intent.putExtra("target", targetFolder);
-									intent.putExtra("islock", islock);
-									intent.putExtra("pasString", pasString);
-									startActivity(intent);
-									paramDialogInterface.dismiss();
-								}
-							}).create();
-			dialog2.show();
-
-			// Intent intent = new Intent(this, FileBrowserActivity.class);
-			// intent.putExtra("target", targetFolder);
-			// startActivity(intent);
+			copyPhotoDialog();
 		}
 			break;
 		case MENU_COPY_PHOTO_disk3: {
 			targetFolder = disks.get(3).path + "/Wifidockbackups/";
-			Dialog dialog2 = new HuzAlertDialog.Builder(mContext)
-					.setTitle(R.string.title_comfir_delete)
-					.setMessage(
-							(mContext.getResources()
-									.getString(R.string.backups_choice)))
-					.setPositiveButton(R.string.backups_default,
-							new DialogInterface.OnClickListener() {
-								public void onClick(
-										DialogInterface paramDialogInterface,
-										int paramInt) {
-									paramDialogInterface.dismiss();
-									// 默认备份
-									String srcFolder = Environment
-											.getExternalStorageDirectory()
-											.getPath()
-											+ File.separator
-											+ getString(R.string.dcim_folder)
-											+ File.separator
-											+ getString(R.string.camera_folder);
-									File srcFile = new File(srcFolder);
-									if (!srcFile.exists()) {
-										srcFolder = Environment
-												.getExternalStorageDirectory()
-												.getPath()
-												+ File.separator
-												+ getString(R.string.camera_folder);
-									}
-									File srcFile2 = new File(srcFolder);
-									if (!srcFile2.exists()) {
-										srcFile2.mkdirs();
-									}
-									if (islock) {
-										new Lockfilethread(srcFile2).start();
-									} else {
-
-										if (targetFolder.startsWith("smb")) {
-											mSmbCopyThread = new SmbFileCopyThread(
-													srcFolder, targetFolder);
-											mSmbCopyThread.start();
-
-											// mSmbCopyThread2 = new
-											// SmbFileCopyThread(
-											// srcFolder2, targetFolder);
-											// mSmbCopyThread2.start();
-										} else {
-											mFileCopyThread = new FileCopyThread(
-													srcFolder, targetFolder);
-											mFileCopyThread.start();
-
-											// mFileCopyThread2 = new
-											// FileCopyThread(
-											// srcFolder2, targetFolder);
-											// mFileCopyThread2.start();
-
-										}
-									}
-								}
-							})
-					.setNegativeButton(R.string.backups_undefault,
-							new DialogInterface.OnClickListener() {
-								public void onClick(
-										DialogInterface paramDialogInterface,
-										int paramInt) {
-									// 自定义备份
-									Intent intent = new Intent(mContext,
-											FileBrowserActivity.class);
-									intent.putExtra("target", targetFolder);
-									intent.putExtra("islock", islock);
-									intent.putExtra("pasString", pasString);
-									startActivity(intent);
-									paramDialogInterface.dismiss();
-								}
-							}).create();
-			dialog2.show();
-
-			// Intent intent = new Intent(this, FileBrowserActivity.class);
-			// intent.putExtra("target", targetFolder);
-			// startActivity(intent);
+			copyPhotoDialog();
 		}
 			break;
-		case MENU_COPY_RECORD_LOCAL: {
-			String targetFolder = disks.get(0).path;
-			String srcFolder = Environment.getExternalStorageDirectory()
-					.getPath()
-					+ File.separator
-					+ getString(R.string.recording_folder);
-			File file = new File(srcFolder);
-			if (!file.exists()) {
-				srcFolder = Environment.getExternalStorageDirectory().getPath()
-						+ File.separator + "Recording";
-				file = new File(srcFolder);
-				if (!file.exists()) {
-					srcFolder = Environment.getExternalStorageDirectory()
-							.getPath() + File.separator + "Recordings";
-					if (!file.exists()) {
-						srcFolder = Environment.getExternalStorageDirectory()
-								.getPath() + File.separator + "Sounds";
-						if (!file.exists()) {
-							ViewEffect.showToast(this,
-									R.string.no_recording_folder);
-							break;
-						}
-					}
-				}
-
-			}
-			mFileCopyThread = new FileCopyThread(srcFolder, targetFolder);
-			mFileCopyThread.start();
-		}
-			break;
-		case MENU_COPY_RECORD_SMB1: {
-			String targetFolder = disks.get(1).path;
-			String srcFolder = Environment.getExternalStorageDirectory()
-					.getPath()
-					+ File.separator
-					+ getString(R.string.recording_folder);
-			File file = new File(srcFolder);
-			if (!file.exists()) {
-				srcFolder = Environment.getExternalStorageDirectory().getPath()
-						+ File.separator + "Recording";
-				file = new File(srcFolder);
-				if (!file.exists()) {
-					srcFolder = Environment.getExternalStorageDirectory()
-							.getPath() + File.separator + "Recordings";
-					if (!file.exists()) {
-						srcFolder = Environment.getExternalStorageDirectory()
-								.getPath() + File.separator + "Sounds";
-						if (!file.exists()) {
-							ViewEffect.showToast(this,
-									R.string.no_recording_folder);
-							break;
-						}
-					}
-				}
-
-			}
-
-			mSmbCopyThread = new SmbFileCopyThread(srcFolder, targetFolder);
-			mSmbCopyThread.start();
-		}
-			break;
+//		case MENU_COPY_RECORD_LOCAL: {
+//			String targetFolder = disks.get(0).path;
+//			String srcFolder = Environment.getExternalStorageDirectory()
+//					.getPath()
+//					+ File.separator
+//					+ getString(R.string.recording_folder);
+//			File file = new File(srcFolder);
+//			if (!file.exists()) {
+//				srcFolder = Environment.getExternalStorageDirectory().getPath()
+//						+ File.separator + "Recording";
+//				file = new File(srcFolder);
+//				if (!file.exists()) {
+//					srcFolder = Environment.getExternalStorageDirectory()
+//							.getPath() + File.separator + "Recordings";
+//					if (!file.exists()) {
+//						srcFolder = Environment.getExternalStorageDirectory()
+//								.getPath() + File.separator + "Sounds";
+//						if (!file.exists()) {
+//							ViewEffect.showToast(this,
+//									R.string.no_recording_folder);
+//							break;
+//						}
+//					}
+//				}
+//
+//			}
+//			mFileCopyThread = new FileCopyThread(srcFolder, targetFolder);
+//			mFileCopyThread.start();
+//		}
+//			break;
+//		case MENU_COPY_RECORD_SMB1: {
+//			String targetFolder = disks.get(1).path;
+//			String srcFolder = Environment.getExternalStorageDirectory()
+//					.getPath()
+//					+ File.separator
+//					+ getString(R.string.recording_folder);
+//			File file = new File(srcFolder);
+//			if (!file.exists()) {
+//				srcFolder = Environment.getExternalStorageDirectory().getPath()
+//						+ File.separator + "Recording";
+//				file = new File(srcFolder);
+//				if (!file.exists()) {
+//					srcFolder = Environment.getExternalStorageDirectory()
+//							.getPath() + File.separator + "Recordings";
+//					if (!file.exists()) {
+//						srcFolder = Environment.getExternalStorageDirectory()
+//								.getPath() + File.separator + "Sounds";
+//						if (!file.exists()) {
+//							ViewEffect.showToast(this,
+//									R.string.no_recording_folder);
+//							break;
+//						}
+//					}
+//				}
+//
+//			}
+//
+//			mSmbCopyThread = new SmbFileCopyThread(srcFolder, targetFolder);
+//			mSmbCopyThread.start();
+//		}
+//			break;
 		case MENU_RECOVER_CONTACT_LOCAL:
 			if(fileIsExists(MENU_RECOVER_CONTACT_LOCAL,disks)){
 				mAddressBookThread = new AddressBookThread(disks.get(0).path);
@@ -1134,7 +665,6 @@ public class MenuActivity extends Activity {
 			break;
 		case MENU_RECOVER_CONTACT_SMB1:
 			if(fileIsExists(MENU_RECOVER_CONTACT_SMB1,disks)){
-				//targetFolder = disks.get(1).path + "/contacts/";
 				mAddressBookThread = new AddressBookThread(disks.get(1).path);
 				mAddressBookThread.start();
 			}
@@ -1165,8 +695,7 @@ public class MenuActivity extends Activity {
 			break;
 			case MENU_RECOVER_PHOTO_LOCAL:
 				if(fileIsExists(MENU_RECOVER_PHOTO_LOCAL,disks)){
-//					mAddressBookThread = new AddressBookThread(disks.get(0).path);
-//					mAddressBookThread.start();
+
 				}
 				else{
 					ToastBuild.toast(MenuActivity.this,
@@ -1175,9 +704,7 @@ public class MenuActivity extends Activity {
 				break;
 			case MENU_RECOVER_PHOTO_SMB1:
 				if(fileIsExists(MENU_RECOVER_PHOTO_SMB1,disks)){
-					//targetFolder = disks.get(1).path + "/contacts/";
-//					mAddressBookThread = new AddressBookThread(disks.get(1).path);
-//					mAddressBookThread.start();
+
 				}
 				else{
 					ToastBuild.toast(MenuActivity.this,
@@ -1186,8 +713,7 @@ public class MenuActivity extends Activity {
 				break;
 			case MENU_RECOVER_PHOTO_SMB2:
 				if(fileIsExists(MENU_RECOVER_PHOTO_SMB2,disks)){
-//					mAddressBookThread = new AddressBookThread(disks.get(2).path);
-//					mAddressBookThread.start();
+
 				}
 				else{
 					ToastBuild.toast(MenuActivity.this,
@@ -1196,8 +722,7 @@ public class MenuActivity extends Activity {
 				break;
 			case MENU_RECOVER_PHOTO_SMB3:
 				if(fileIsExists(MENU_RECOVER_PHOTO_SMB3,disks)){
-//					mAddressBookThread = new AddressBookThread(disks.get(3).path);
-//					mAddressBookThread.start();
+
 				}
 				else{
 					ToastBuild.toast(MenuActivity.this,
@@ -1244,38 +769,8 @@ public class MenuActivity extends Activity {
                 return false;
         }
         return true;
-}
-	/*
-	 * private String getAppropriateFileName(final String destDirectory) { int
-	 * fileNumberStringLength = 0; { // Calling Math.Log10() is costly. int tmp;
-	 * for (fileNumberStringLength = 0, tmp = CONFIG_EXPORT_FILE_MAX_INDEX; tmp
-	 * > 0; fileNumberStringLength++, tmp /= 10) { } } String bodyFormat =
-	 * "%s%0" + fileNumberStringLength + "d%s";
-	 * 
-	 * if (!ALLOW_LONG_FILE_NAME) { String possibleBody =
-	 * String.format(bodyFormat,mFileNamePrefix, 1, mFileNameSuffix); if
-	 * (possibleBody.length() > 8 || mFileNameExtension.length() > 3) {
-	 * Log.e(LOG_TAG, "This code does not allow any long file name.");
-	 * mErrorReason = getString(R.string.fail_reason_too_long_filename,
-	 * String.format("%s.%s", possibleBody, mFileNameExtension));
-	 * showDialog(R.id.dialog_fail_to_export_with_reason); // finish() is called
-	 * via the error dialog. Do not call the method here. return null; } }
-	 * 
-	 * // Note that this logic assumes that the target directory is case
-	 * insensitive. // As of 2009-07-16, it is true since the external storage
-	 * is only sdcard, and // it is formated as FAT/VFAT. // TODO: fix this. for
-	 * (int i = CONFIG_EXPORT_FILE_MIN_INDEX; i <= CONFIG_EXPORT_FILE_MAX_INDEX;
-	 * i++) { boolean numberIsAvailable = true; // SD Association's
-	 * specification seems to require this feature, though we cannot // have the
-	 * specification since it is proprietary... String body = null; for (String
-	 * possibleExtension : mExtensionsToConsider) { body =
-	 * String.format(bodyFormat, mFileNamePrefix, i, mFileNameSuffix); File file
-	 * = new File(String.format("%s/%s.%s", destDirectory, body,
-	 * possibleExtension)); if (file.exists()) { numberIsAvailable = false;
-	 * break; } } if (numberIsAvailable) { return String.format("%s/%s.%s",
-	 * destDirectory, body, mFileNameExtension); } }
-	 * //showDialog(R.string.fail_reason_too_many_vcard); return null; }
-	 */
+	}
+
 	@Override
 	protected void onStop() {
 		// TODO Auto-generated method stub
@@ -1288,9 +783,6 @@ public class MenuActivity extends Activity {
 		if (mFileCopyThread != null) {
 			mFileCopyThread = null;
 		}
-		/*
-		 * if (!isFinishing()) { finish(); }
-		 */
 	}
 
 	class btnClickListener implements OnClickListener {
@@ -1322,50 +814,35 @@ public class MenuActivity extends Activity {
 	private class FileCopyThread extends Thread {
 		String mSrcFolderDir;
 		String mDstFolderDir;
-//		private ProgressDialog mProgressDialog;
-
 		public FileCopyThread(String srcDir, String dstDir) {
 			mSrcFolderDir = srcDir;
 			mDstFolderDir = dstDir;
 			Log.i(TAG, "src=" + mSrcFolderDir + " dst=" + mDstFolderDir);
-//			String title = getString(R.string.exporting_data_title);
-//			String message = getString(R.string.exporting_data_message,
-//					mDstFolderDir);
-//			mProgressDialog = new ProgressDialog(MenuActivity.this);
-//			mProgressDialog.setTitle(title);
-//			mProgressDialog.setMessage(message);
-//			mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-//			mProgressDialog.show();
-		    
 		}
 
 		public void run() {
 			boolean flag = false;
 			File srcFile = new File(mSrcFolderDir);
-			if (!srcFile.exists()) { // 源文件夹不存在
+			// 源文件夹不存在
+			if (!srcFile.exists()) { 
 				Log.i(TAG, "源文件夹不存在");
 				mProgressDialog.dismiss();
 				return;
 			}
 
-//			String dirName = getDirName(mSrcFolderDir);
-//			String destPath = mDstFolderDir + File.separator + dirName;
 			String destPath = mDstFolderDir;
-			// String destPath = mDstFolderDir + dirName; //jh+
 
 			File destDirFile = new File(destPath);
-			if (destDirFile.exists()) { // 目标位置有一个同名文件夹
-//				Log.i(TAG, "目标位置已有同名文件夹!");
-//				File[] fileList = destDirFile.listFiles();
-//				for (File temp : fileList)
-//					temp.delete();
-
+			// 目标位置有一个同名文件夹
+			if (destDirFile.exists()) { 
 			}else {
-				destDirFile.mkdirs(); // 生成目录
+				// 生成目录
+				destDirFile.mkdirs();
 			}
-
-			File[] fileList = srcFile.listFiles(); // 获取源文件夹下的子文件和子文件夹
-			if (fileList.length == 0) { // 如果源文件夹为空目录则直接设置flag为true，这一步非常隐蔽，debug了很久
+			// 获取源文件夹下的子文件和子文件夹
+			File[] fileList = srcFile.listFiles(); 
+			// 如果源文件夹为空目录则直接设置flag为true，这一步非常隐蔽，debug了很久
+			if (fileList.length == 0) { 
 				return;
 			} else {
 				Message msg=Message.obtain();
@@ -1376,23 +853,19 @@ public class MenuActivity extends Activity {
 				msg.arg1=fileList.length;
 				msg.arg2=0;
 				handler.sendMessage(msg);
-				
-//				mProgressDialog.setMax(fileList.length);
-//				mProgressDialog.setProgress(0);
 				for (File temp : fileList) {
-					if (temp.isFile()) { // 文件
+					// 文件
+					if (temp.isFile()) { 
 						flag = copyFile(temp.getAbsolutePath(), destPath);
 					}
 					if (!flag) {
 						break;
 					}
-//					mProgressDialog.incrementProgressBy(1);
 					Message msg2=Message.obtain();
 					msg2.what=INCREACE;
 					handler.sendMessage(msg2);
 				}
 			}
-//			mProgressDialog.dismiss();
 			Message msg=Message.obtain();
 			msg.what=END;
 			handler.sendMessage(msg);
@@ -1402,18 +875,12 @@ public class MenuActivity extends Activity {
 		}
 	}
 
-	private static String getDirName(String dir) {
-		if (dir.endsWith(File.separator)) { // 如果文件夹路径以"//"结尾，则先去除末尾的"//"
-			dir = dir.substring(0, dir.lastIndexOf(File.separator));
-		}
-		return dir.substring(dir.lastIndexOf(File.separator) + 1);
-	}
-
 	private static boolean copyFile(String srcPath, String destDir) {
 		boolean flag = false;
 
 		File srcFile = new File(srcPath);
-		if (!srcFile.exists()) { // 源文件不存在
+		// 源文件不存在
+		if (!srcFile.exists()) { 
 			Log.i(TAG, "源文件不存在");
 			return false;
 		}
@@ -1424,7 +891,6 @@ public class MenuActivity extends Activity {
 
 		File destFile = new File(destPath);
 		if (destFile.exists() && destFile.isFile()) { // 该路径下已经有一个同名文件
-//			destFile.delete();
 			return true;
 		}
 
@@ -1441,12 +907,10 @@ public class MenuActivity extends Activity {
 
 			flag = true;
 		} catch (IOException e) {
-			//
 		}
 
 		if (flag) {
 			Log.i(TAG, "复制文件成功!");
-			;
 		}
 		return flag;
 	}
@@ -1455,20 +919,9 @@ public class MenuActivity extends Activity {
 	private class SmbFileCopyThread extends Thread {
 		String mSrcFolderDir;
 		String mDstFolderDir;
-//		private ProgressDialog mProgressDialog;
-
 		public SmbFileCopyThread(String srcDir, String dstDir) {
 			mSrcFolderDir = srcDir;
 			mDstFolderDir = dstDir;
-			Log.i(TAG, "src=" + mSrcFolderDir + " dst=" + mDstFolderDir);
-//			String title = getString(R.string.exporting_data_title);
-//			String message = getString(R.string.exporting_data_message,
-//					mDstFolderDir);
-//			mProgressDialog = new ProgressDialog(MenuActivity.this);
-//			mProgressDialog.setTitle(title);
-//			mProgressDialog.setMessage(message);
-//			mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-//			mProgressDialog.show();
 		}
 
 		public void run() {
@@ -1478,15 +931,12 @@ public class MenuActivity extends Activity {
 				Log.i(TAG, "源文件夹不存在");
 				return;
 			}
-
-//			String dirName = getDirName(mSrcFolderDir);
-//			String destPath = mDstFolderDir + dirName + File.separator;
 			String destPath = mDstFolderDir;
 
 			try {
 				SmbFile destDirFile = new SmbFile(destPath);
-
-				if (destDirFile.exists()) { // 目标位置有一个同名文件夹
+				// 目标位置有一个同名文件夹
+				if (destDirFile.exists()) { 
 
 //					for(SmbFile sm:destDirFile.listFiles()){
 //						sm.delete();
@@ -1501,16 +951,12 @@ public class MenuActivity extends Activity {
 				}else {
 					destDirFile.mkdirs();
 				}
-				// else
-				// destDirFile.mkdirs(); // 生成目录
-				Log.i(TAG, "mkdirs ok!");
-				// xuwu update 20140523
-				File[] fileList1 = srcFile.listFiles(); // 获取源文件夹下的子文件和子文件夹
+				// 获取源文件夹下的子文件和子文件夹
+				File[] fileList1 = srcFile.listFiles(); 
 				File[] fileList = new File[fileList1.length];
 				int j = 0;
 				for (int i = 0; i < fileList1.length; i++) {
 					String nameString = fileList1[i].getName();
-					Log.i("==================extraName", nameString);
 					if (nameString.endsWith(".jpg")
 							|| nameString.endsWith(".gif")
 							|| nameString.endsWith(".bmp")
@@ -1521,12 +967,10 @@ public class MenuActivity extends Activity {
 						j++;
 					}
 				}
-				if (fileList.length == 0) { // 如果源文件夹为空目录则直接设置flag为true，这一步非常隐蔽，debug了很久
+				// 如果源文件夹为空目录则直接设置flag为true，这一步非常隐蔽，debug了很久
+				if (fileList.length == 0) { 
 					return;
 				} else {
-					
-//					mProgressDialog.setMax(j);
-//					mProgressDialog.setProgress(0);
 					Message msg=Message.obtain();
 					Bundle bundle=new Bundle();
 					bundle.putString("dest", mDstFolderDir);
@@ -1537,24 +981,12 @@ public class MenuActivity extends Activity {
 					handler.sendMessage(msg);
 					for (int i = 0; i < j; i++) {
 						File temp = fileList[i];
-						// 文件
-						// flag = copyFileToSmb(temp.getAbsolutePath(),
-						// destPath);
 						String srcPath = temp.getAbsolutePath();
 						String fileName = srcPath.substring(srcPath
 								.lastIndexOf(File.separator));
 						Log.i(TAG, "smbcopy " + srcPath + " " + destPath
 								+ fileName);
-						// 2014/10/27 for g81
-						 smbHelper.copyFile(srcPath, destPath + fileName);
-//						Intent intent = new Intent(mContext,
-//								DownloadService.class);
-//						intent.putExtra("srcDir", srcPath);
-//						intent.putExtra("toDir", mDstFolderDir);
-//						intent.putExtra("CopyOperation", "copy");
-//						intent.putExtra("isCut", false);
-//						startService(intent);
-
+						smbHelper.copyFile(srcPath, destPath + fileName);
 						Message msg2=Message.obtain();
 						msg2.what=INCREACE;
 						handler.sendMessage(msg2);
@@ -1615,7 +1047,6 @@ public class MenuActivity extends Activity {
 			@Override
 			public void run() {
 				mWakeLock.acquire();
-				//String file = Environment.getExternalStorageDirectory() + "/contacts/Contacts.vcf";
 				String cfile = Environment.getExternalStorageDirectory() + "/wcontactscash/Contacts.vcf";
 				try {
 					if(spath.contains("smb")){
@@ -1734,7 +1165,6 @@ public class MenuActivity extends Activity {
 			mWakeLock = powerManager.newWakeLock(
 					PowerManager.SCREEN_DIM_WAKE_LOCK
 							| PowerManager.ON_AFTER_RELEASE, TAG);
-			// if (mProgressDialog == null)
 			{
 				String title = getString(R.string.exporting_contact_list_title);
 				String message = getString(
@@ -1753,48 +1183,11 @@ public class MenuActivity extends Activity {
 
 		@Override
 		public void run() {
-			// boolean shouldCallFinish = true;
 			mWakeLock.acquire();
 			VCardComposer composer = null;
 			try {
 				OutputStream outputStream = null;
 				try {
-					// xw2014/10/31
-					// if (mExportingFileName.startsWith("smb")) {
-					// Log.i(TAG, "new smb " + mExportingFileName);
-					// SmbFile remoteFile = new SmbFile(mExportingFileName);
-					// remoteFile.connect();
-					// Log.i(TAG, "smb connect");
-					// if (!remoteFile.isDirectory()) {
-					// remoteFile.mkdir();
-					// }
-					// remoteFile = new SmbFile(mExportingFileName
-					// + "contacts.vcf");
-					// if (remoteFile.exists()) {
-					// Log.i(TAG, "delete smb ");
-					// remoteFile.delete();
-					// }
-					// remoteFile.createNewFile();
-					//
-					// outputStream = new BufferedOutputStream(
-					// new SmbFileOutputStream(remoteFile));
-					// } else {
-					// File remoteFile = new File(mExportingFileName);
-					// if (!remoteFile.isDirectory()) {
-					// remoteFile.mkdir();
-					// }
-					// remoteFile = new File(mExportingFileName
-					// + "contacts.vcf");
-					// if (remoteFile.exists()) {
-					// Log.i(TAG, "delete smb ");
-					// remoteFile.delete();
-					// }
-					// remoteFile.createNewFile();
-					// mExportingFileName = mExportingFileName
-					// + "contacts.vcf";
-					// outputStream = new FileOutputStream(mExportingFileName);
-					// }
-
 					File remoteFile = new File(Environment
 							.getExternalStorageDirectory().getPath()
 							+ File.separator + "wcontactscash/");
@@ -1811,8 +1204,6 @@ public class MenuActivity extends Activity {
 						remoteFile.delete();
 					}
 					remoteFile.createNewFile();
-					// mExportingFileName = mExportingFileName
-					// + "contacts.vcf";
 					outputStream = new FileOutputStream(Environment
 							.getExternalStorageDirectory().getPath()
 							+ File.separator
@@ -1836,8 +1227,6 @@ public class MenuActivity extends Activity {
 					e.printStackTrace();
 				}
 
-				// composer = new VCardComposer(ExportVCardActivity.this,
-				// mVCardTypeStr, true);
 				int vcardType = VCardConfig.VCARD_TYPE_V30_GENERIC_UTF8;
 				composer = new VCardComposer(MenuActivity.this, vcardType, true);
 				Log.i(TAG, "addHandler ");
@@ -1848,22 +1237,14 @@ public class MenuActivity extends Activity {
 					final String errorReason = composer.getErrorReason();
 					Log.e(TAG, "initialization of vCard composer failed: "
 							+ errorReason);
-					// shouldCallFinish = false;
 					return;
 				}
-
 				int size = composer.getCount();
-
 				if (size == 0) {
-					// (R.string.fail_reason_no_exportable_contact)
-					// shouldCallFinish = false;
 					return;
 				}
-
-				// mProgressDialog.setProgressNumberFormat(getString(R.string.exporting_contact_list_progress));
 				mProgressDialog.setMax(size);
 				mProgressDialog.setProgress(0);
-				// mProgressDialog.show();
 				while (!composer.isAfterLast()) {
 					if (mCanceled) {
 						return;
@@ -1871,12 +1252,6 @@ public class MenuActivity extends Activity {
 					if (!composer.createOneEntry()) {
 						final String errorReason = composer.getErrorReason();
 						Log.e(TAG, "Failed to read a contact: " + errorReason);
-						// final String translatedErrorReason =
-						// translateComposerError(errorReason);
-//						 mHandler.post(new ErrorReasonDisplayer(
-						// getString(R.string.fail_reason_error_occurred_during_export,
-						// translatedErrorReason)));
-						// shouldCallFinish = false;
 						return;
 					}
 					mProgressDialog.incrementProgressBy(1);
@@ -1889,10 +1264,6 @@ public class MenuActivity extends Activity {
 				mWakeLock.release();
 				Log.i(TAG, "contacts copy success");
 				mProgressDialog.dismiss();
-				// if (shouldCallFinish && !isFinishing()) {
-				// finish();
-				// }
-				// if (mExportingFileName.startsWith("smb")){
 				if (islock) {
 					FileEnDecryptManager.getInstance().Initdecrypt(
 							Environment.getExternalStorageDirectory().getPath()
@@ -1932,8 +1303,6 @@ public class MenuActivity extends Activity {
 				intent.putExtra("CopyOperation", "COVER");
 				intent.putExtra("isCut", true);
 				startService(intent);
-				// }
-
 			}
 		}
 
@@ -2028,20 +1397,9 @@ public class MenuActivity extends Activity {
 			if (targetFolder.startsWith("smb")) {
 				mSmbCopyThread = new SmbFileCopyThread(lockdir, targetFolder);
 				mSmbCopyThread.start();
-
-				// mSmbCopyThread2 = new
-				// SmbFileCopyThread(
-				// srcFolder2, targetFolder);
-				// mSmbCopyThread2.start();
 			} else {
 				mFileCopyThread = new FileCopyThread(lockdir, targetFolder);
 				mFileCopyThread.start();
-
-				// mFileCopyThread2 = new
-				// FileCopyThread(
-				// srcFolder2, targetFolder);
-				// mFileCopyThread2.start();
-
 			}
 		}
 	}
@@ -2092,8 +1450,9 @@ public class MenuActivity extends Activity {
 		};
 	};
 
-	public void parasecontent(String str){
-		int tt = 10;//ASCII码换行
+	private void parasecontent(String str){
+		//换行符 ASCII码值
+		int tt = 10;
 		char key = (char)tt;
 		String strs [] = str.split(key+"");
 		itemlist = new ArrayList<AddressBookItem>();
@@ -2101,10 +1460,8 @@ public class MenuActivity extends Activity {
 			Log.i("strs", strs[i]);
 			if(strs[i].contains("BEGIN")){
 				addressBookItem = new AddressBookItem();
-				Log.i("Parse start", "1111");
 			}
 			else if(strs[i].contains("END")){
-				Log.i("Parse end", "222");
 				itemlist.add(addressBookItem); 
 				addressBookItem = null;	
 			}
@@ -2115,7 +1472,6 @@ public class MenuActivity extends Activity {
 				String strn[] = strs[i].split(":");
 				if(strn.length>1){
 					String compositename = strn[1];
-					Log.i("compositename", compositename);
 					addressBookItem.setCompositename(compositename);
 				}
 			}
@@ -2129,8 +1485,6 @@ public class MenuActivity extends Activity {
 						lastname = strnn[1];
 						addressBookItem.setLastname(lastname);
 					}
-					Log.i("firstname", firstname);
-					Log.i("lastname", lastname);
 					addressBookItem.setFirstname(firstname);
 				}
 			}
@@ -2138,7 +1492,6 @@ public class MenuActivity extends Activity {
 				String strn[] = strs[i].split(":");
 				if(strn.length>1){
 					String personphone = strn[1];
-					Log.i("personphone", personphone);
 					addressBookItem.setPersonphone(personphone);
 				}
 			}
@@ -2167,6 +1520,71 @@ public class MenuActivity extends Activity {
 		               e.printStackTrace();   
 		        }   
 		    }   
-	}   
+	}
+	private void copyPhotoDialog(){
+		Dialog dialog2 = new HuzAlertDialog.Builder(mContext)
+		.setTitle(R.string.title_comfir_delete)
+		.setMessage(
+				(mContext.getResources()
+						.getString(R.string.backups_choice)))
+		.setPositiveButton(R.string.backups_default,
+				new DialogInterface.OnClickListener() {
+					public void onClick(
+							DialogInterface paramDialogInterface,
+							int paramInt) {
+						paramDialogInterface.dismiss();
+						// 默认备份
+						String srcFolder = Environment
+								.getExternalStorageDirectory()
+								.getPath()
+								+ File.separator
+								+ getString(R.string.dcim_folder)
+								+ File.separator
+								+ getString(R.string.camera_folder);
+						File srcFile = new File(srcFolder);
+						if (!srcFile.exists()) {
+							srcFolder = Environment
+									.getExternalStorageDirectory()
+									.getPath()
+									+ File.separator
+									+ getString(R.string.camera_folder);
+						}
+						File srcFile2 = new File(srcFolder);
+						if (!srcFile2.exists()) {
+							srcFile2.mkdirs();
+						}
+						if (islock) {
+							new Lockfilethread(srcFile2).start();
+						} else {
+
+							if (targetFolder.startsWith("smb")) {
+								mSmbCopyThread = new SmbFileCopyThread(
+										srcFolder, targetFolder);
+								mSmbCopyThread.start();
+							} else {
+								mFileCopyThread = new FileCopyThread(
+										srcFolder, targetFolder);
+								mFileCopyThread.start();
+							}
+						}
+					}
+				})
+		.setNegativeButton(R.string.backups_undefault,
+				new DialogInterface.OnClickListener() {
+					public void onClick(
+							DialogInterface paramDialogInterface,
+							int paramInt) {
+						// 自定义备份
+						Intent intent = new Intent(mContext,
+								FileBrowserActivity.class);
+						intent.putExtra("target", targetFolder);
+						intent.putExtra("islock", islock);
+						intent.putExtra("pasString", pasString);
+						startActivity(intent);
+						paramDialogInterface.dismiss();
+					}
+				}).create();
+		dialog2.show();
+	}
 }
 
